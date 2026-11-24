@@ -3645,7 +3645,6 @@ function drawCupSleeve(g,d){
     ctx.fillStyle=sg; ctx.fill();
   }
   ctx.save(); ctx.clip();
-  const midX=g.cx;
   if(d==='heart'){
     ctx.fillStyle='rgba(255,255,255,.14)';
     ctx.fillRect(g.cx-g.topW,s.y0+14,g.topW*2,1.2);
@@ -3702,13 +3701,6 @@ function drawCupSleeve(g,d){
   ctx.shadowColor=d==='aurora'?'rgba(255,255,255,.55)':'rgba(60,20,45,.32)'; ctx.shadowBlur=2.5;
   drawTracked('SHASHA',g.cx,s.y0+9.6,g.topW*0.011,'900 '+(g.topW*0.048).toFixed(1)+'px system-ui,"Helvetica Neue",Arial,sans-serif');
   ctx.restore();
-}
-function heartPath2(c,x,y,s){
-  c.beginPath();
-  c.moveTo(x,y+s*0.72);
-  c.bezierCurveTo(x-s*1.25,y-s*0.22,x-s*0.62,y-s*1.10,x,y-s*0.40);
-  c.bezierCurveTo(x+s*0.62,y-s*1.10,x+s*1.25,y-s*0.22,x,y+s*0.72);
-  c.closePath();
 }
 function drawCupEmblem(g,d){
   const st=cupStyle(d);
@@ -3770,7 +3762,7 @@ function drawCupEmblem(g,d){
     ctx.fillStyle='#7fd8b6'; ctx.fill();
   }
   else {
-    ctx.save(); ctx.translate(0,-r*0.44); heartPath3(ctx,0,0,r*0.10); ctx.fillStyle='#e0396f'; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.translate(0,-r*0.44); heartPath(ctx,0,0,r*0.10); ctx.fillStyle='#e0396f'; ctx.fill(); ctx.restore();
   }
   /* 텍스트 */
   ctx.textAlign='center'; ctx.textBaseline='middle';
@@ -3785,13 +3777,6 @@ function drawCupEmblem(g,d){
     ctx.fillText('IRON ROLL · -20°C',0,r*0.47);
   }
   ctx.restore();
-}
-function heartPath3(c,x,y,s){
-  c.beginPath();
-  c.moveTo(x,y+s*0.72);
-  c.bezierCurveTo(x-s*1.25,y-s*0.22,x-s*0.62,y-s*1.10,x,y-s*0.40);
-  c.bezierCurveTo(x+s*0.62,y-s*1.10,x+s*1.25,y-s*0.22,x,y+s*0.72);
-  c.closePath();
 }
 function drawCupFront(g){
   const d=S.cupDesign||'heart';
