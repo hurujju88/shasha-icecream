@@ -2037,60 +2037,70 @@ function drawMiniCupIcon(c,id){
   c.save(); c.clip();
   if(id==='soda'){
     c.save(); c.rotate(-0.5);
-    for(let i=-5;i<=5;i++){ c.fillStyle='rgba(38,110,180,.22)'; c.fillRect(-40,i*7,80,2.6); }
+    for(let i=-5;i<=5;i++){ c.fillStyle='rgba(38,110,180,.20)'; c.fillRect(-40,i*8,80,3.2); }
     c.restore();
-    star5(c,0,-4,7,-0.1); c.fillStyle='rgba(255,255,255,.85)'; c.fill();
+    star5(c,0,-2,8,-0.1); c.fillStyle='rgba(255,255,255,.9)'; c.fill();
+    c.strokeStyle='rgba(38,110,180,.30)'; c.lineWidth=1; c.stroke();
   } else if(id==='mint'){
-    for(let yy=-18,row=0;yy<22;yy+=6,row++){
-      for(let xx=-20-((row%2)?3:0);xx<20;xx+=6){
-        c.fillStyle='rgba(120,214,180,.92)'; c.fillRect(xx,yy,3,3);
-      }
+    /* 단정한 민트 종이 + 작은 체커 한 줄 */
+    c.fillStyle='#d5f4e6'; c.fillRect(-20,-18,40,42);
+    for(let i=0;i<5;i++){
+      c.fillStyle='rgba(31,157,120,.42)';
+      c.fillRect(-16+i*8,-13,4,4);
+      c.fillRect(-12+i*8,-9,4,4);
     }
+    c.fillStyle='rgba(255,255,255,.55)'; c.fillRect(-20,-15.5,40,1.6);
   } else if(id==='aurora'){
     const ag=c.createLinearGradient(0,-16,0,22);
-    ag.addColorStop(0,'#6f4fd0'); ag.addColorStop(.45,'#a98cf5'); ag.addColorStop(.72,'#ffb4dd'); ag.addColorStop(1,'#fdefff');
+    ag.addColorStop(0,'#5d3fc4'); ag.addColorStop(.42,'#9a7cf0'); ag.addColorStop(.72,'#ffb0d8'); ag.addColorStop(1,'#fdefff');
     c.fillStyle=ag; c.fillRect(-20,-18,40,42);
-    c.strokeStyle='rgba(157,240,214,.75)'; c.lineWidth=3; c.beginPath();
-    for(let x=-18;x<=18;x+=1){ const y=-3+Math.sin(x*0.35)*3; if(x===-18)c.moveTo(x,y); else c.lineTo(x,y); }
+    c.strokeStyle='rgba(157,240,214,.8)'; c.lineWidth=3.4; c.beginPath();
+    for(let x=-18;x<=18;x+=1){ const y=-4+Math.sin(x*0.32)*3; if(x===-18)c.moveTo(x,y); else c.lineTo(x,y); }
     c.stroke();
-    c.strokeStyle='rgba(255,158,203,.7)'; c.beginPath();
-    for(let x=-18;x<=18;x+=1){ const y=3+Math.sin(x*0.3+1.6)*3; if(x===-18)c.moveTo(x,y); else c.lineTo(x,y); }
+    c.strokeStyle='rgba(255,158,203,.75)'; c.beginPath();
+    for(let x=-18;x<=18;x+=1){ const y=2+Math.sin(x*0.28+1.7)*3; if(x===-18)c.moveTo(x,y); else c.lineTo(x,y); }
     c.stroke();
+    star4(c,8,-10,2.6,0.9); c.fillStyle='rgba(255,255,255,.95)'; c.fill();
   } else {
+    c.fillStyle='#fff3f8'; c.fillRect(-20,-18,40,42);
     for(let i=-3;i<=3;i++){
-      c.fillStyle=i%2?'rgba(255,150,190,.42)':'rgba(255,120,168,.26)';
-      c.fillRect(i*5-2.4,-16,4.8,40);
+      c.fillStyle=i%2?'rgba(255,140,183,.50)':'rgba(255,110,165,.30)';
+      c.fillRect(i*5-2.6,-16,5.2,40);
     }
+    c.fillStyle='rgba(255,196,120,.75)'; c.fillRect(-20,-14,40,1.2);
   }
   /* 슬리브 밴드 */
   if(d.id==='aurora'){
-    c.fillStyle='rgba(255,255,255,.55)'; c.fillRect(-18,0,36,11);
-    c.fillStyle='rgba(120,90,230,.35)'; c.fillRect(-18,0,36,1.4); c.fillRect(-18,9.6,36,1.4);
+    c.fillStyle='rgba(255,255,255,.62)'; c.fillRect(-18,-1,36,13);
+    c.fillStyle='rgba(120,90,230,.40)'; c.fillRect(-18,-1,36,1.6); c.fillRect(-18,10.4,36,1.6);
   } else {
-    const sg=c.createLinearGradient(0,-1,0,11);
+    const sg=c.createLinearGradient(0,-1,0,12);
     sg.addColorStop(0,st.sleeve[0]); sg.addColorStop(.55,st.sleeve[1]); sg.addColorStop(1,st.sleeve[2]);
-    c.fillStyle=sg; c.fillRect(-18,0,36,11);
+    c.fillStyle=sg; c.fillRect(-18,-1,36,13);
     if(d.id==='mint'){
-      c.fillStyle='rgba(84,200,164,.75)'; c.fillRect(-18,0,36,1.8); c.fillRect(-18,9.2,36,1.8);
+      c.fillStyle='rgba(84,200,164,.85)'; c.fillRect(-18,-1,36,2.2); c.fillRect(-18,9.8,36,2.2);
+    } else {
+      c.fillStyle='rgba(255,255,255,.40)'; c.fillRect(-18,-1,36,1.2);
     }
-    c.fillStyle='rgba(255,255,255,.35)'; c.fillRect(-18,0,36,1);
   }
   /* 엠블럼 */
-  c.beginPath(); c.arc(0,5.5,4.9,0,TAU);
-  c.fillStyle=st.metal==='gold'?'#e8b74a':(st.metal==='mint'?'#ffffff':'#dfe8f5'); c.fill();
-  c.beginPath(); c.arc(0,5.5,3.5,0,TAU);
-  c.fillStyle=d.id==='soda'?'#12365e':(d.id==='aurora'?'#efe2ff':'#fffaf2'); c.fill();
-  if(d.id==='soda'){ star5(c,0,5.5,2.1,0); c.fillStyle='#ffffff'; c.fill(); }
+  c.beginPath(); c.arc(0,5.5,5.4,0,TAU);
+  c.fillStyle=st.metal==='gold'?'#e8b74a':(st.metal==='mint'?'#3fb28b':'#e7eefa'); c.fill();
+  c.beginPath(); c.arc(0,5.5,3.9,0,TAU);
+  c.fillStyle=d.id==='soda'?'#12365e':(d.id==='aurora'?'#f3e8ff':(d.id==='mint'?'#ffffff':'#fffaf2')); c.fill();
+  if(d.id==='soda'){ star5(c,0,5.5,2.4,0); c.fillStyle='#ffffff'; c.fill(); }
+  else if(d.id==='heart'){ heartPath(c,0,5.6,1.8); c.fillStyle='#e0396f'; c.fill(); }
+  else if(d.id==='aurora'){ star4(c,0,5.5,2.2,0.7); c.fillStyle='#8f6bff'; c.fill(); }
+  else { c.beginPath(); c.ellipse(0,5.6,1.7,1.1,0,0,TAU); c.fillStyle='#1f9d78'; c.fill(); }
   /* 하이라이트 */
-  c.fillStyle='rgba(255,255,255,.34)'; c.fillRect(-5.6,-18,3.2,42);
+  c.fillStyle='rgba(255,255,255,.30)'; c.fillRect(-6,-18,3.4,42);
   c.restore();
   c.beginPath(); c.ellipse(0,-16,17.6,4.6,0,0,TAU);
   c.strokeStyle='#fffafd'; c.lineWidth=2.6; c.stroke();
-  c.beginPath(); c.ellipse(0,-16,17.6,4.6,0,0,TAU);
-  c.strokeStyle='rgba(190,140,175,.25)'; c.lineWidth=.8; c.stroke();
+  c.beginPath(); c.ellipse(0,-15.4,16.4,3.4,0,0,TAU);
+  c.strokeStyle='rgba(150,110,140,.18)'; c.lineWidth=.9; c.stroke();
   c.restore();
 }
-
 /* ============================================================
    철판 씬 (STEP 1~4)
    ============================================================ */
