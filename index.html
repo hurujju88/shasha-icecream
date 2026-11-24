@@ -161,6 +161,13 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .chip.big .n{display:block;max-width:100%;line-height:1.18;font-weight:900;color:#45123a;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chip.big.on .n{color:#6b0436}
+/* 짧은 화면(높이 720px 이하) : 컵 4종 줄과 토핑 칸이 잘리지 않게 압축 */
+@media (max-height:720px){
+  .cuprow{height:32px}
+  .chip.big{font-size:8.6px;padding:0 1px}
+  .chip.big .e{height:15px}
+  .chip.big .e img{width:15px;height:15px}
+}
 
 /* coach panel (steps 2-4) */
 .coach{flex:1 1 auto;display:flex;align-items:center;gap:12px;padding:2px 6px;min-height:0}
