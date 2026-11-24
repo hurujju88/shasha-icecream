@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="샤샤아이스크림">
 <meta name="application-name" content="샤샤아이스크림">
+
 <title>🎀 샤샤네 철판아이스크림</title>
 <style>
 :root{--pink:#ff4d7a;--pink2:#ff89a8;--gold:#ffb300;--ice:#7fd8f7;--ink:#12080f;
@@ -332,7 +333,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   text-shadow:0 1px 0 #fff}
 .iSign b{font-weight:900}
 /* 창문 */
-.iWindow{position:absolute;left:7%;top:17%;width:27%;height:23%;border-radius:13px;border:4px solid #fff;
+.iWindow{position:absolute;left:7%;top:12.5%;width:25%;height:12.5%;border-radius:13px;border:4px solid #fff;
   background:linear-gradient(180deg,#c9ecff,#e7f8ff 58%,#f7feff);
   box-shadow:0 9px 20px rgba(150,110,170,.18),inset 0 0 18px rgba(255,255,255,.9);overflow:hidden}
 .iWindow i{position:absolute;background:rgba(255,255,255,.9)}
@@ -350,7 +351,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .iJars i:nth-child(2):after{background:#ffe0a6}
 .iJars i:nth-child(3):after{background:#cfe6ff}
 /* 벽시계 */
-.iClock{position:absolute;right:11%;top:34%;width:44px;height:44px;border-radius:50%;border:3px solid #fff;
+.iClock{position:absolute;right:7%;top:11.8%;width:44px;height:44px;border-radius:50%;border:3px solid #fff;
   background:radial-gradient(circle at 38% 30%,#fff,#ffe8f5);
   box-shadow:0 7px 16px rgba(185,110,155,.2),inset 0 0 0 1.5px rgba(255,190,220,.6)}
 .iClock i{position:absolute;left:50%;top:50%;width:2px;height:13px;margin:-13px 0 0 -1px;border-radius:2px;
@@ -453,6 +454,35 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .iBubStaff:after{left:56px}
 .iBubCust{left:46%;bottom:178px;transform-origin:82% 110%}
 .iBubCust:after{right:26px;left:auto}
+/* ---------- 손님 주문서 카드 : 베이스·재료·컵·토핑을 한눈에 ---------- */
+.iOrder{position:absolute;left:0;right:0;bottom:calc(26% + 246px);margin:0 auto;width:min(352px,93vw);z-index:8;
+  padding:8px 11px 10px;border-radius:17px;border:2px solid #fff;opacity:0;pointer-events:none;
+  background:linear-gradient(180deg,#fffdfe,#fff4fb);
+  box-shadow:0 15px 28px rgba(170,80,130,.24),0 0 0 1px rgba(255,178,214,.55),inset 0 1px 0 #fff}
+.iOrder.in{animation:iOrderIn .46s cubic-bezier(.16,1.32,.4,1) both}
+@keyframes iOrderIn{0%{opacity:0;transform:translateY(-13px) scale(.95)}100%{opacity:1;transform:none}}
+.iOHead{display:flex;align-items:center;gap:6px;margin:0 0 5px;font-size:10.5px;font-weight:900;color:#c0206c;letter-spacing:-.3px}
+.iOHead em{font-style:normal;font-size:9px;font-weight:800;color:#95407c;background:rgba(255,224,240,.95);
+  border-radius:999px;padding:1.5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:63%}
+.iORow{display:flex;align-items:center;gap:7px;height:24px}
+.iORow+.iORow{margin-top:2px}
+.iOK{flex:0 0 auto;width:45px;text-align:center;font-size:9px;font-weight:900;letter-spacing:-.4px;color:#9c2a6a;
+  background:linear-gradient(160deg,#ffe6f2,#f1e2ff);border-radius:7px;padding:2.5px 0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.9)}
+.iORow.deco .iOK{background:linear-gradient(160deg,#e6f8ff,#ffe6f4);color:#14708f}
+.iOV{flex:1 1 auto;min-width:0;font-size:13px;font-weight:900;color:#4d1740;letter-spacing:-.5px;line-height:1.15;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iOrder.in .iORow{animation:iORowIn .28s ease-out both}
+.iOrder.in .iORow:nth-child(2){animation-delay:.10s}
+.iOrder.in .iORow:nth-child(3){animation-delay:.16s}
+.iOrder.in .iORow:nth-child(4){animation-delay:.22s}
+.iOrder.in .iORow:nth-child(5){animation-delay:.28s}
+@keyframes iORowIn{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+/* 짧은 화면에서는 주문서 카드가 덮는 벽 장식(창·병·선반)을 정리해 깔끔하게 */
+@media (max-height:800px){
+  .iWindow,.iJars,.iShelf{opacity:0}
+  .iOrder .iORow{height:22px}
+  .iOV{font-size:12.5px}
+}
 /* 터치 안내 */
 .iHint{position:absolute;left:50%;bottom:3.4%;transform:translateX(-50%);z-index:8;white-space:nowrap;
   font-size:10.5px;font-weight:900;color:#8c2a63;letter-spacing:-.2px;
@@ -605,6 +635,15 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
       </div>
       <div class="iBub iBubStaff" id="iBubStaff"><b>어서 오세요!</b><span>샤샤네입니다~</span></div>
       <div class="iBub iBubCust" id="iBubCust"><b id="iWho">손님</b><span id="iSay">아이스크림 만들어 주세요!</span></div>
+    </div>
+
+    <!-- 손님 주문서 : 베이스 · 재료 · 컵 · 토핑을 한눈에 -->
+    <div class="iOrder" id="iOrder" aria-hidden="true">
+      <div class="iOHead"><span>📋 주문서</span><em id="iOName">오늘의 주문</em></div>
+      <div class="iORow" id="iORowBase"><span class="iOK">베이스</span><b class="iOV" id="iOVBase">우유·생크림</b></div>
+      <div class="iORow" id="iORowTops"><span class="iOK">재료</span><b class="iOV" id="iOVTops">—</b></div>
+      <div class="iORow" id="iORowCup"><span class="iOK">컵</span><b class="iOV" id="iOVCup">—</b></div>
+      <div class="iORow deco" id="iORowDecos"><span class="iOK">토핑</span><b class="iOV" id="iOVDecos">—</b></div>
     </div>
 
     <div class="iCounter"><div class="iScallop"></div><span class="iShakecup">🍨</span><span class="iBell">🔔</span>
@@ -4140,7 +4179,10 @@ function landRoll(r){
 }
 function finishPick(){
   S.pick.done=true;
-  showTip('롤 4개 모두 담았어요! 🍦 이제 토핑으로 마음대로 꾸며요',2400);
+  const dr=(S.mode==='order'&&S.recipe&&(S.recipe.decos||[]).length)
+    ? S.recipe.decos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ')
+    : null;
+  showTip(dr?('롤 4개 모두 담았어요! 🍦 주문 토핑 '+dr+' 올려요'):'롤 4개 모두 담았어요! 🍦 이제 토핑으로 꾸며요',2400);
   AudioKit.ding(); flash(0.4);
   setTimeout(()=>{ if(S.step===5) goStep(6); },1150);
 }
@@ -4444,11 +4486,14 @@ function flash(v){ S.flash=Math.max(S.flash,v); }
    자유 레시피 약 2.7초 / 다음 손님 약 2.5초
    탭·스페이스·엔터 어느 것이든 한 번이면 바로 STEP 1로.
    ============================================================ */
-const I={root:null,staff:null,cust:null,bubS:null,bubC:null,who:null,say:null,emoji:null,bubSt:null,bubSs:null,timers:[]};
+const I={root:null,staff:null,cust:null,bubS:null,bubC:null,who:null,say:null,emoji:null,bubSt:null,bubSs:null,
+  order:null,oName:null,oBase:null,oTops:null,oCup:null,oDecos:null,timers:[]};
 function introInit(){
   I.root=$('#intro'); I.staff=$('#iStaff'); I.cust=$('#iCust');
   I.bubS=$('#iBubStaff'); I.bubC=$('#iBubCust');
   I.who=$('#iWho'); I.say=$('#iSay'); I.emoji=$('#iCustEmoji');
+  I.order=$('#iOrder'); I.oName=$('#iOName');
+  I.oBase=$('#iOVBase'); I.oTops=$('#iOVTops'); I.oCup=$('#iOVCup'); I.oDecos=$('#iOVDecos');
   I.bubSt=I.bubS?I.bubS.querySelector('b'):null; I.bubSs=I.bubS?I.bubS.querySelector('span'):null;
   if(!I.root) return;
   I.root.addEventListener('pointerdown',e=>{ e.preventDefault(); skipIntro(); },{passive:false});
@@ -4460,6 +4505,7 @@ function iLater(fn,ms){ I.timers.push(setTimeout(fn,ms)); }
 function introResetNodes(){
   I.staff.classList.remove('in'); I.cust.classList.remove('in');
   I.bubS.classList.remove('in','out'); I.bubC.classList.remove('in','out');
+  if(I.order){ I.order.classList.remove('in'); I.order.setAttribute('aria-hidden','true'); }
   I.root.classList.remove('out','show');
 }
 function introFill(recipe,free){   /* 인트로 화면 내용물 세팅 */
@@ -4467,10 +4513,21 @@ function introFill(recipe,free){   /* 인트로 화면 내용물 세팅 */
   I.bubSt.textContent='어서 오세요!';
   I.bubSs.textContent=hasCust?'샤샤네입니다~':'오늘은 마음대로 만들어 봐요~';
   I.bubC.style.display=hasCust?'':'none';
+  if(I.order) I.order.style.display=hasCust?'':'none';
   if(hasCust){
     I.emoji.textContent=recipe.cust||'🍨';
     I.who.textContent=recipe.who||'손님';
     I.say.textContent=(recipe.name||'아이스크림')+' 만들어 주세요!';
+    /* 주문서 카드 : ①베이스 ②철판 재료 ③컵 ④마지막 토핑을 그대로 */
+    const b=BASE_BY[recipe.base]||BASES[0];
+    const tops=(recipe.tops||[]).map(id=>TOP_BY[id]?TOP_BY[id].e+' '+TOP_BY[id].name:'').filter(Boolean);
+    const cup=CUP_DESIGNS.find(c=>c.id===recipe.cup);
+    const decos=(recipe.decos||[]).map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean);
+    if(I.oName) I.oName.textContent=recipe.name||'오늘의 주문';
+    if(I.oBase) I.oBase.textContent=b.e+' '+b.name;
+    if(I.oTops) I.oTops.textContent=tops.length?tops.join(' · '):'—';
+    if(I.oCup) I.oCup.textContent=cup?cup.e+' '+cup.name+'컵':'—';
+    if(I.oDecos) I.oDecos.textContent=decos.length?decos.join(' · '):'—';
   }
 }
 function playIntro(recipe,kind){
@@ -4491,18 +4548,20 @@ function playIntro(recipe,kind){
     iLater(()=>{ I.bubS.classList.remove('in'); I.bubS.classList.add('out'); },1900);
     iLater(()=>{ endIntro(); },2460);
   } else if(first){
-    /* 첫 입장 — 인사 → 손님 등장 → 주문 (전체 약 5.0초)
-       0.3 인사 / 1.8 손님 등장 / 2.2 주문 말풍선(2.3초 이상 머무름) / 4.76 페이드아웃 */
+    /* 첫 입장 — 인사 → 손님 등장 → 주문 말풍선+주문서 카드 (전체 약 5.8초)
+       0.32 인사 / 1.8 손님 등장 / 2.15 주문 말풍선 / 2.26 주문서 카드 / 5.76 페이드아웃 */
     iLater(()=>{ I.bubS.classList.add('in'); AudioKit.sparkle(); },320);
     iLater(()=>{ I.bubS.classList.remove('in'); I.bubS.classList.add('out'); },1800);
     iLater(()=>{ I.cust.classList.add('in'); AudioKit.doorChime(); },1800);
-    iLater(()=>{ I.bubC.classList.add('in'); AudioKit.pop(); },2200);
-    iLater(()=>{ endIntro(); },4760);
+    iLater(()=>{ I.bubC.classList.add('in'); AudioKit.pop(); },2150);
+    iLater(()=>{ if(I.order) I.order.classList.add('in'); AudioKit.sparkle(); },2260);
+    iLater(()=>{ endIntro(); },5760);
   } else {
-    /* 다음 손님 — 경쾌하게 약 2.5초, 손님만 쏙 */
+    /* 다음 손님 — 경쾌하게 약 3.6초, 손님 + 주문서 카드 */
     iLater(()=>{ I.cust.classList.add('in'); AudioKit.doorChime(); },60);
     iLater(()=>{ I.bubC.classList.add('in'); AudioKit.pop(); },520);
-    iLater(()=>{ endIntro(); },2260);
+    iLater(()=>{ if(I.order) I.order.classList.add('in'); AudioKit.sparkle(); },640);
+    iLater(()=>{ endIntro(); },3620);
   }
 }
 function endIntro(){
@@ -4539,12 +4598,22 @@ function introSnap(phase){           /* 'staff' | 'cust' | 'free' */
   I.root.classList.add('show');
   I.staff.classList.add('in');
   if(phase==='staff'||phase==='free') I.bubS.classList.add('in');
-  if(phase==='cust'){ I.cust.classList.add('in'); I.bubC.classList.add('in'); }
+  if(phase==='cust'){ I.cust.classList.add('in'); I.bubC.classList.add('in'); if(I.order) I.order.classList.add('in'); }
   introActive=true;
   return true;
 }
 
 /* ---------- chips ---------- */
+/* 토핑(장식) 헤더 — 주문 모드에서는 주문 토핑 달성도를 보여 준다 */
+function decoCountText(){
+  const r=(S.mode==='order'&&S.recipe)?S.recipe:null;
+  if(r){
+    const need=(r.decos||[]);
+    const hit=need?need.filter(id=>S.decos.some(x=>x.id===id)).length:0;
+    return '주문 토핑 '+hit+'/'+(need?need.length:0)+' · 총 '+S.decos.length+'개';
+  }
+  return '마음대로! '+S.decos.length+'개 / 7';
+}
 function chipHTML(item,on,need,big,kind){
   const src=iconFor(item.id,kind||'deco');
   return '<button class="chip'+(big?' big':'')+(on?' on':'')+(need?' need':'')+'" data-id="'+item.id+'" type="button">'+
@@ -4571,7 +4640,7 @@ function renderTray(){
   }
   if(S.step===6){
     const r=(S.mode==='order'&&S.recipe)?S.recipe:null;
-    let h='<div class="thead"><span>토핑 장식</span><span id="decoCount">마음대로! '+S.decos.length+'개 / 7</span></div>';
+    let h='<div class="thead"><span>'+(r?'주문 토핑 장식':'토핑 장식')+'</span><span id="decoCount">'+decoCountText()+'</span></div>';
     h+='<div class="cuprow"><span class="cuplab">컵</span>';
     for(const c of CUP_DESIGNS){
       const need=!!(r&&r.cup===c.id), on=S.cupDesign===c.id;
@@ -4699,11 +4768,22 @@ function refreshOrderBar(){
       const cls=cupOk?' ok':((S.step>=5&&S.cupPicked)?' miss':'');
       h+='<span class="req'+cls+'">'+(cupOk?'✓ ':'')+cup.e+' '+cup.name+'컵</span>';
     }
+    /* 마지막에 뿌리는 토핑(장식)도 주문 조건으로 계속 노출 */
+    const needDecos=(r.decos||[]);
+    needDecos.forEach(id=>{
+      const d=DECO_BY[id]; if(!d) return;
+      const ok=S.decos.some(x=>x.id===id);
+      h+='<span class="req deco'+(ok?' ok':' miss')+'">'+(ok?'✓ ':'')+d.e+' '+d.name+'</span>';
+    });
     el.orderReq.innerHTML=h;
     if(el.orderNote){
-      el.orderNote.innerHTML=(S.step>=6)
-        ? '<b>토핑은 마음대로</b> — 어떤 장식이든 OK! 🎨'
-        : '<b>주문</b> '+(r.line||'');
+      if(S.step>=6&&needDecos.length){
+        const decoTxt=needDecos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ');
+        const allOk=needDecos.every(id=>S.decos.some(x=>x.id===id));
+        el.orderNote.innerHTML='<b>토핑 주문</b> '+decoTxt+(allOk?' · ✓ 완벽!' : ' · 올려요!');
+      } else {
+        el.orderNote.innerHTML='<b>주문</b> '+(r.line||'');
+      }
     }
     el.dice.hidden=true;
   } else {
@@ -4815,7 +4895,12 @@ function goStep(n){
   if(n===3){ initSpread(); showTip('👋 가운데 뭉친 반죽을 판 끝까지 밀어 펴요!',4600); }
   if(n===4){ initSheet(); showTip('🖐️ 1번 줄부터! 아래에서 위로 쭉 밀어 롤을 말아요',5200); }
   if(n===5){ initPick(); showTip('🥢 집게로 롤을 하나씩 컵에 담아요!',5000); }
-  if(n===6){ initCup(); showTip('🍦 롤 4개 완성! 토핑은 마음대로 장식해요',4400); }
+  if(n===6){ initCup();
+    const dr=(S.mode==='order'&&S.recipe&&(S.recipe.decos||[]).length)
+      ? S.recipe.decos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ')
+      : null;
+    showTip(dr?('🍦 롤 4개 완성! 주문 토핑 '+dr+' 올려요'):'🍦 롤 4개 완성! 토핑은 마음대로 장식해요',4400);
+  }
   if(n>=5) refreshOrderBar();
   renderTray(); updateProgress(); updateToolBadge();
   /* 단계가 바뀔 때 툭 끊기지 않게 부드러운 전환 */
@@ -5094,7 +5179,14 @@ function addDeco(id){
   spawnCupBurst(24);
   S.shake=Math.min(1,S.shake+0.10);
   S.flash=Math.max(S.flash,0.14);
-  const c=$('#decoCount'); if(c) c.textContent='마음대로! '+S.decos.length+'개 / 7';
+  const c=$('#decoCount'); if(c) c.textContent=decoCountText();
+  const chip=el.tray.querySelector('.chip[data-id="'+id+'"]');
+  if(chip){ chip.classList.add('on'); chip.classList.remove('need'); }
+  if(S.mode==='order'&&S.recipe){
+    refreshOrderBar();
+    const need=(S.recipe.decos||[]);
+    if(need.includes(id)) showTip('주문한 '+d.name+' ✓ 딱 맞았어요!',1500);
+  }
   updateProgress(); updateToolBadge();
 }
 
@@ -5326,7 +5418,14 @@ function computeResult(){
     if(perfect){
       /* 베이스·재료·컵을 다 맞췄으면 98% 기본. 토핑을 얹으면 +1, 추천 토핑까지 다 얹으면 +1 → 98~100% */
       score=98+(S.decos.length?1:0)+(S.decoReco?1:0);
-      note='주문 그대로 — 베이스·재료·컵까지 완벽! 토핑은 마음대로 장식 🎨';
+      if(S.decoReco){
+        note='주문 그대로 — 베이스·재료·컵·토핑까지 완벽! 100% 🎉';
+      } else if(needDecos.length){
+        const miss=needDecos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ');
+        note='베이스·재료·컵까지 완벽! 주문 토핑 '+miss+'까지 올리면 100%';
+      } else {
+        note='주문 그대로 — 베이스·재료·컵까지 완벽!';
+      }
     } else {
       score=(baseOk?40:20)+34*(hit/needTops)+(cupOk?9:0)+craft*6;
       note=(!baseOk&&hit===0&&!cupOk)?'주문과 많이 달라요'
@@ -5377,7 +5476,7 @@ function showResult(){
   let rb=S.resultNote;
   if(S.mode==='order'&&S.orderPerfect){
     let bonus='주문 보너스 +15 코인';
-    if(S.decoReco) bonus+=' · 추천 토핑 보너스 +5 코인';
+    if(S.decoReco) bonus+=' · 주문 토핑 보너스 +5 코인';
     rb+='<br><em class="rbonus">'+bonus+'</em>';
   }
   $('#rNote').innerHTML=rb;
