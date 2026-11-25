@@ -41,12 +41,12 @@ html,body{margin:0;height:100%;overflow:hidden;background:#fff2f8;color:var(--pl
 
 /* ---------- header ---------- */
 header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:7px;min-width:0}
+.brand{display:flex;align-items:center;gap:7px;min-width:0;flex:0 0 auto}
 .brand .logo{font-size:21px;line-height:1;filter:drop-shadow(0 2px 5px rgba(255,110,160,.55))}
 .brand b{display:block;font-size:13px;line-height:1.1;letter-spacing:-.6px;white-space:nowrap;color:var(--plum);
   text-shadow:0 1px 0 rgba(255,255,255,.9)}
 .brand small{display:block;font-size:8px;line-height:1.3;color:#9c1a56;letter-spacing:.4px;font-weight:800;white-space:nowrap}
-.hud{display:flex;align-items:center;gap:6px}
+.hud{display:flex;align-items:center;gap:6px;flex:1 1 auto;justify-content:flex-end;min-width:0}
 .counter{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.86);border:1px solid rgba(255,190,70,.75);
   color:#a35b00;font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px;letter-spacing:-.2px;
   box-shadow:0 2px 8px rgba(255,175,90,.22)}
@@ -56,19 +56,19 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .iconbtn:active{transform:scale(.94)}
 
 /* ---------- order bar ---------- */
-#orderbar{position:relative;z-index:2;flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:52px;
-  padding:6px 8px;border-radius:14px;border:1px solid rgba(255,255,255,.95);
+#orderbar{position:relative;z-index:2;flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:62px;
+  padding:7px 9px;border-radius:14px;border:1px solid rgba(255,255,255,.95);
   background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.76));
   box-shadow:0 4px 14px rgba(158,72,128,.12),inset 0 1px 0 #fff}
-.avatar{flex:0 0 auto;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:21px;
+.avatar{flex:0 0 auto;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font-size:24px;
   background:linear-gradient(160deg,#ffb3cd,#e3568f);box-shadow:0 4px 12px rgba(230,90,145,.34),inset 0 -2px 6px rgba(120,20,70,.18)}
 .om{min-width:0;flex:1 1 auto}
-.oname{font-size:13px;font-weight:900;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--plum)}
-.onote{font-size:9px;font-weight:700;color:#8a2a63;margin-top:2px;white-space:nowrap;overflow:hidden;
-  text-overflow:ellipsis;letter-spacing:-.2px;opacity:.92}
+.oname{font-size:15.5px;line-height:1.2;font-weight:900;letter-spacing:-.45px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--plum)}
+.onote{font-size:11.5px;font-weight:800;color:#84235c;margin-top:3px;line-height:1.28;letter-spacing:-.25px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.95}
 .onote b{color:#c0206c;font-weight:900}
-.oline{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap;max-height:38px;overflow:hidden}
-.req{font-size:8.8px;font-weight:800;padding:1.5px 4.5px;border-radius:6px;background:rgba(255,243,249,.95);line-height:1.2;
+.oline{display:flex;gap:3.5px;margin-top:4px;flex-wrap:wrap;max-height:48px;overflow:hidden}
+.req{font-size:10.5px;font-weight:900;padding:2.5px 6px;border-radius:7px;background:rgba(255,243,249,.95);line-height:1.2;
   border:1px solid rgba(224,130,178,.38);color:#8c2a63;white-space:nowrap}
 .req.miss{background:#fff4dd;border-color:rgba(242,178,60,.75);color:#8a5500}
 .req.who{background:linear-gradient(160deg,#ffe0ef,#e9dcff);border-color:rgba(255,130,180,.7);color:#a01253;font-weight:900}
@@ -99,15 +99,15 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 #comboTag.show{opacity:1;transform:translateX(-50%) scale(1) rotate(-6deg)}
 
 /* ---------- step bar ---------- */
-#stepbar{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-items:center;gap:7px;
-  padding:0 8px 5px;border-radius:11px;border:1px solid rgba(255,255,255,.92);background:rgba(255,255,255,.74);
+#stepbar{position:relative;z-index:2;flex:0 0 auto;height:48px;display:flex;align-items:center;gap:7px;
+  padding:0 9px 6px;border-radius:11px;border:1px solid rgba(255,255,255,.92);background:rgba(255,255,255,.74);
   box-shadow:0 3px 10px rgba(150,70,120,.10)}
-.sbadge{font-size:9px;font-weight:900;letter-spacing:.4px;color:#08303e;background:linear-gradient(180deg,#c2f0ff,#8fdcf5);
-  padding:3px 6px;border-radius:5px;flex:0 0 auto}
-.stitle{font-size:12px;font-weight:900;color:var(--plum);flex:1 1 auto;white-space:nowrap;overflow:hidden;
+.sbadge{font-size:11px;font-weight:900;letter-spacing:.3px;color:#08303e;background:linear-gradient(180deg,#c2f0ff,#8fdcf5);
+  padding:3.5px 7px;border-radius:6px;flex:0 0 auto}
+.stitle{font-size:14px;font-weight:900;color:var(--plum);flex:1 1 auto;white-space:nowrap;overflow:hidden;
   text-overflow:ellipsis;letter-spacing:-.3px}
-.spct{font-size:11.5px;font-weight:900;color:#b02a68;min-width:30px;text-align:right;letter-spacing:-.3px}
-.snext{flex:0 0 auto;font-size:11.5px;font-weight:900;min-height:31px;padding:6px 11px;border-radius:9px;border:0;color:#fff;
+.spct{font-size:13px;font-weight:900;color:#b02a68;min-width:34px;text-align:right;letter-spacing:-.3px}
+.snext{flex:0 0 auto;font-size:13px;font-weight:900;min-height:36px;padding:7px 12px;border-radius:10px;border:0;color:#fff;
   background:linear-gradient(180deg,#f2487d,#c8164e);box-shadow:0 3px 10px rgba(220,50,110,.35);cursor:pointer}
 .snext:disabled{background:rgba(208,170,200,.30);color:#9a6f92;box-shadow:none}
 .snext.hide{visibility:hidden}
@@ -121,24 +121,24 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.78));
   box-shadow:0 6px 20px rgba(150,70,120,.13),inset 0 1px 0 #fff;overflow:hidden;padding:6px 7px}
 #trayInner{height:100%;display:flex;flex-direction:column;gap:3px}
-.thead{display:flex;align-items:center;justify-content:space-between;height:12px;flex:0 0 auto}
-.thead span:first-child{font-size:8.5px;font-weight:900;letter-spacing:1.1px;color:var(--rose)}
-.thead span:last-child{font-size:8px;color:#80628f;font-weight:800}
+.thead{display:flex;align-items:center;justify-content:space-between;height:16px;flex:0 0 auto}
+.thead span:first-child{font-size:10.5px;font-weight:900;letter-spacing:.8px;color:var(--rose)}
+.thead span:last-child{font-size:9.5px;color:#80628f;font-weight:800}
 .chips{display:grid;gap:3.5px;flex:0 0 auto}
 .bases{grid-template-columns:repeat(4,1fr);height:40px}
 .tops{grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr;flex:1 1 auto;min-height:0}
 .decos{grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:auto;flex:0 0 auto;min-height:0;align-content:start}
-.cuprow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;height:34px;flex:0 0 auto}
+.cuprow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;height:38px;flex:0 0 auto}
 .cuprow.pulseRow{animation:cupRowPulse .55s ease-out}
 @keyframes cupRowPulse{0%{transform:scale(1)}30%{transform:scale(1.045);filter:drop-shadow(0 0 7px rgba(255,120,170,.85))}100%{transform:scale(1)}}
 .cuplab{display:none}
-.cupbtn{min-width:0;height:34px;display:flex;align-items:center;justify-content:center;gap:4px;
-  border-radius:9px;border:1px solid rgba(255,255,255,.95);color:#5a2338;font-size:8.5px;font-weight:900;
+.cupbtn{min-width:0;height:38px;display:flex;align-items:center;justify-content:center;gap:4px;
+  border-radius:9px;border:1px solid rgba(255,255,255,.95);color:#5a2338;font-size:11px;font-weight:900;
   letter-spacing:-.4px;padding:0 3px;cursor:pointer;position:relative;overflow:hidden;
   box-shadow:0 2px 6px rgba(150,80,130,.16),inset 0 1px 0 rgba(255,255,255,.9);
   background:linear-gradient(165deg,var(--ca,#ffd0e4),var(--cb,#e6d6ff))}
 .cupbtn .n{display:block;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cupbtn b{font-size:11px;line-height:1;font-weight:400}
+.cupbtn b{font-size:13px;line-height:1;font-weight:400}
 .cupbtn:active{transform:scale(.96)}
 .cupbtn.on{border-color:rgba(255,90,150,.95);box-shadow:0 0 0 1.5px rgba(255,110,160,.55) inset,0 0 9px rgba(255,130,175,.6)}
 .cupbtn.on:after{content:"✓";position:absolute;right:2px;top:-1px;font-size:7px;color:#a01048;font-weight:900}
@@ -157,17 +157,19 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .chip.on .e{transform:scale(1.06)}
 .chip.pulse{animation:chipPulse .4s ease-out}
 @keyframes chipPulse{0%{transform:scale(1)}45%{transform:scale(1.14)}100%{transform:scale(1)}}
-.chip.big{font-size:10px;font-weight:900;gap:1px;padding:2px 1px 3px;letter-spacing:-.35px;justify-content:center;min-height:37px}
-.chip.big .e{display:flex;align-items:center;justify-content:center;height:19px;line-height:1;flex:0 0 auto}
-.chip.big .e img{width:19px;height:19px}
+.chip.big{font-size:12px;font-weight:900;gap:1px;padding:3px 1px 4px;letter-spacing:-.5px;justify-content:center;min-height:44px}
+.chip.big .e{display:flex;align-items:center;justify-content:center;height:21px;line-height:1;flex:0 0 auto}
+.chip.big .e img{width:21px;height:21px}
 .chip.big .n{display:block;max-width:100%;line-height:1.2;font-weight:900;color:#45123a;padding-bottom:1px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip.big .n.long{font-size:11px;letter-spacing:-.7px}
 .chip.big.on .n{color:#6b0436}
 /* 짧은 화면(높이 720px 이하) : 컵 4종 줄과 토핑 칸이 잘리지 않게 압축 */
 @media (max-height:720px){
-  .cuprow{height:32px}
-  .chip.big{font-size:9px;padding:1px 1px 2px;min-height:33px}
-  .chip.big .e{height:16px}
+  .cuprow{height:34px}
+  .chip.big{font-size:11px;padding:2px 1px 3px;min-height:40px}
+  .chip.big .e{height:18px}
+  .chip.big .n.long{font-size:10.5px}
 }
 
 /* coach panel (steps 2-4) */
@@ -176,11 +178,11 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .coach .ctx{flex:1 1 auto;min-width:0}
-.coach .ct1{font-size:13.5px;font-weight:900;color:var(--plum);letter-spacing:-.3px}
-.coach .ct2{font-size:10.5px;color:var(--grape);margin-top:2px;line-height:1.35;font-weight:700}
+.coach .ct1{font-size:15.5px;font-weight:900;color:var(--plum);letter-spacing:-.3px}
+.coach .ct2{font-size:12px;color:#5c2b6f;margin-top:2px;line-height:1.35;font-weight:800}
 .coach .cstat{flex:0 0 auto;text-align:right}
 .coach .cstat b{display:block;font-size:24px;font-weight:900;color:#e07f00;line-height:1;letter-spacing:-1px}
-.coach .cstat small{font-size:8.5px;color:#80628f;font-weight:800}
+.coach .cstat small{font-size:9.5px;color:#80628f;font-weight:800}
 .miniBar{height:5px;border-radius:3px;background:rgba(160,90,140,.16);margin-top:5px;overflow:hidden}
 .miniBar i{display:block;height:100%;width:0%;border-radius:3px;background:linear-gradient(90deg,#ff6b8b,#ffb300)}
 .finishBtn{flex:0 0 auto;height:34px;border:0;border-radius:10px;padding:0 12px;font-size:12px;font-weight:900;color:#4a2a00;
@@ -189,10 +191,10 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .finishBtn:disabled{background:rgba(200,160,150,.2);color:rgba(110,55,95,.45);box-shadow:none}
 .tiprow{font-size:9.5px;color:#84679a;font-weight:800;text-align:center;flex:0 0 auto}
 .gStrip{display:flex;gap:5px;align-items:center;justify-content:center;flex:0 0 auto;padding:0 2px 4px}
-.gh{font-size:9.5px;font-weight:900;color:#7a2a5e;background:rgba(255,255,255,.94);
-  border:1px dashed rgba(226,150,192,.7);border-radius:8px;padding:3.5px 8px;white-space:nowrap;letter-spacing:-.3px;
+.gh{font-size:11px;font-weight:900;color:#7a2a5e;background:rgba(255,255,255,.94);
+  border:1px dashed rgba(226,150,192,.7);border-radius:8px;padding:4px 8px;white-space:nowrap;letter-spacing:-.3px;
   box-shadow:0 1px 4px rgba(160,90,140,.08)}
-.gh b{font-size:11px;margin-right:1px}
+.gh b{font-size:12px;margin-right:1px}
 .gh.dim{color:#8a6a96;border-color:rgba(202,170,218,.55);background:rgba(255,255,255,.68);font-weight:800}
 
 /* pick panel (step 5) */
@@ -200,8 +202,8 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .pickpanel .pkic{font-size:29px;line-height:1;flex:0 0 auto;filter:drop-shadow(0 3px 7px rgba(235,110,160,.4));
   animation:bob 1.7s ease-in-out infinite}
 .pickpanel .pktx{flex:1 1 auto;min-width:0}
-.pickpanel .pktx b{display:block;font-size:12.5px;font-weight:900;color:var(--plum);letter-spacing:-.3px}
-.pickpanel .pktx span{display:block;font-size:9.5px;color:var(--grape);font-weight:700;margin-top:1px;line-height:1.3}
+.pickpanel .pktx b{display:block;font-size:14.5px;font-weight:900;color:var(--plum);letter-spacing:-.3px}
+.pickpanel .pktx span{display:block;font-size:11.5px;color:#5c2b6f;font-weight:800;margin-top:2px;line-height:1.3}
 .pickpanel .pkn{flex:0 0 auto;text-align:right;color:#e07f00;font-weight:900;line-height:1}
 .pickpanel .pkn b{font-size:23px;letter-spacing:-1px}
 .pickpanel .pkn small{font-size:9px;color:#80628f}
@@ -538,7 +540,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 
 /* ================= 플레이어 · 코인 랭킹 ================= */
 /* 헤더 : 플레이어 칩 · 순위 버튼 */
-.playerPill{display:flex;align-items:center;gap:3px;max-width:78px;height:33px;padding:0 8px;border-radius:999px;
+.playerPill{display:flex;align-items:center;gap:3px;flex:0 1 auto;min-width:0;max-width:96px;height:33px;padding:0 8px;border-radius:999px;
   background:rgba(255,255,255,.86);border:1px solid rgba(196,140,190,.38);color:#7a2a5e;
   font-size:11px;font-weight:900;letter-spacing:-.3px;cursor:pointer;font-family:inherit;
   box-shadow:0 2px 8px rgba(150,80,130,.14)}
@@ -586,9 +588,9 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .padd:active{transform:scale(.96)}
 
 /* 결과 화면 : 내 순위 */
-.rRank{display:block;width:100%;margin:0 0 10px;padding:7px 8px;border-radius:11px;text-align:center;
+.rRank{display:block;width:100%;margin:0 0 10px;padding:8px 9px;border-radius:11px;text-align:center;
   background:linear-gradient(180deg,#fff8e6,#fff0f8);border:1px solid rgba(255,190,70,.6);
-  font-size:10.5px;font-weight:900;color:#8a4b00;letter-spacing:-.2px;cursor:pointer;font-family:inherit}
+  font-size:12.5px;font-weight:900;color:#8a4b00;letter-spacing:-.25px;cursor:pointer;font-family:inherit}
 .rRank:active{transform:scale(.985)}
 
 /* 랭킹 · 플레이어 모달 */
@@ -611,7 +613,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .rkRow.top{background:linear-gradient(180deg,#fffaec,#fff3fa);border-color:rgba(255,190,70,.65)}
 .rkRow.me{border-color:rgba(255,105,160,.95);background:linear-gradient(180deg,#ffe9f3,#ffdcec);
   box-shadow:0 0 0 1.5px rgba(255,110,160,.45) inset}
-.rkPos{flex:0 0 22px;text-align:center;font-size:14px;line-height:1}
+.rkPos{flex:0 0 22px;text-align:center;font-size:17px;line-height:1}
 .rkPos i{font-style:normal;font-size:11px;font-weight:900;color:#ab7c9d}
 .rkWho{flex:1 1 auto;display:flex;align-items:center;gap:5px;min-width:0}
 .rkEmo{font-size:14px;line-height:1;flex:0 0 auto}
@@ -630,13 +632,72 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .rkReset{background:none;border:0;color:#a98aa2;font-size:9px;font-weight:800;text-decoration:underline;
   text-underline-offset:2px;cursor:pointer;padding:3px 6px;font-family:inherit}
 
+/* 시작 화면 : 내 닉네임 */
+.nickrow{display:flex;align-items:center;gap:8px;padding:2px 6px 0}
+.nickemoji{font-size:24px;line-height:1;flex:0 0 auto}
+.nickname{flex:1 1 auto;min-width:0;font-size:17px;font-weight:900;color:#a8104f;letter-spacing:-.5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nickedit{flex:0 0 auto;height:26px;padding:0 11px;border-radius:999px;cursor:pointer;font-family:inherit;
+  background:rgba(255,255,255,.96);border:1px solid rgba(255,130,180,.7);color:#a8104f;font-size:11px;font-weight:900}
+.nickedit:active{transform:scale(.95)}
+.pnote{margin:8px 6px 0;font-size:11px;font-weight:800;color:#8a4b7d;letter-spacing:-.2px;text-align:left;line-height:1.35}
+.pnote b{color:#c0206c}
+
+/* 닉네임 정하기 모달 */
+#nickScreen{z-index:60}
+.nickCard{width:100%;max-width:326px;border-radius:22px;padding:16px 15px 14px;position:relative;
+  background:linear-gradient(180deg,#fffbfe,#fff1f9);border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 24px 60px rgba(125,50,105,.28),inset 0 1px 0 #fff;animation:cardPop .34s cubic-bezier(.2,1.3,.4,1) both}
+.nkHead{text-align:center;font-size:17px;font-weight:900;color:var(--plum);letter-spacing:-.6px}
+.nkSub{margin:5px 0 12px;text-align:center;font-size:11.5px;font-weight:800;color:#8a5e86;line-height:1.4}
+.nkRow{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:14px;
+  background:rgba(255,255,255,.96);border:1.5px solid rgba(255,140,185,.55)}
+.nkEmoji{font-size:24px;line-height:1;flex:0 0 auto}
+.nkInput{flex:1 1 auto;min-width:0;height:34px;border:0;background:transparent;font-size:16px;font-weight:900;
+  color:#5c2452;font-family:inherit;letter-spacing:-.4px;outline:none;padding:0}
+.nkInput::placeholder{color:#bfa2b8;font-weight:800;font-size:14px}
+.nkErr{margin:9px 2px 0;font-size:12px;font-weight:900;color:#d0143f;text-align:center;line-height:1.35}
+.nkDice{display:block;width:100%;margin:12px 0 9px;height:42px;border-radius:12px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(180deg,#fff8e6,#ffe9c9);border:1px solid rgba(255,190,70,.8);color:#8a4b00;
+  font-size:13.5px;font-weight:900;letter-spacing:-.2px;box-shadow:0 3px 10px rgba(220,150,40,.2)}
+.nkDice:active{transform:scale(.97)}
+.nkSave{display:block;width:100%;height:48px;border-radius:13px;border:0;cursor:pointer;font-family:inherit;
+  background:linear-gradient(180deg,#ff7aab,#e8407f);color:#fff;font-size:15.5px;font-weight:900;letter-spacing:-.2px;
+  box-shadow:0 5px 16px rgba(220,60,120,.34)}
+.nkSave:active{transform:scale(.98)}
+.nkLater{display:block;width:100%;margin-top:9px;background:none;border:0;color:#9a6f92;font-size:12px;
+  font-weight:800;text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-family:inherit}
+.nkLater[hidden]{display:none}
+
+/* 랭킹 : 내 순위 카드 · 상태줄 */
+.rkMe{margin:0 0 9px;padding:9px 11px;border-radius:14px;
+  background:linear-gradient(180deg,#fff6fb,#ffe9f3);border:1px solid rgba(255,140,185,.55);
+  box-shadow:0 2px 8px rgba(220,90,150,.14)}
+.rkMeTop{display:flex;align-items:baseline;justify-content:space-between;gap:6px}
+.rkMeTop #rkMeRank{font-size:13.5px;font-weight:900;color:#a8104f;letter-spacing:-.3px}
+.rkMeTop #rkMeCoins{font-size:15px;font-weight:900;color:#e0216b;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.rkMeFoot{display:flex;align-items:center;justify-content:space-between;margin-top:5px;font-size:10.5px;font-weight:900;color:#8a4b7d}
+.rkMeFoot #rkMeDDay{color:#a35b00}
+.rkStatus{display:flex;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:900;
+  color:#8a5e86;margin-top:7px;text-align:center;line-height:1.35}
+.rkStatus.live{color:#0d7c4a}
+.rkStatus.off{color:#a35b00}
+.rkRefresh{background:none;border:0;color:#a98aa2;font-size:10.5px;font-weight:900;text-decoration:underline;
+  text-underline-offset:2px;cursor:pointer;padding:4px 6px;font-family:inherit}
+.rkEmpty{text-align:center;font-size:11.5px;font-weight:800;color:#8a5e86;padding:16px 6px;line-height:1.55}
+
 /* 좁은 화면(헤더 한 줄 유지) */
 @media (max-width:384px){
   .brand b{font-size:12px}
   .brand small{font-size:7.4px}
   .hud{gap:4px}
-  .counter{font-size:11px;padding:5px 7px}
-  .playerPill{max-width:60px;padding:0 6px;font-size:10.5px}
+  .counter{font-size:11.5px;padding:5px 7px}
+  .playerPill{max-width:96px;padding:0 6px;font-size:11.5px}
+  .oname{font-size:14.5px}
+  .onote{font-size:11px}
+  .chip.big{font-size:11px;min-height:40px}
+  .chip.big .n.long{font-size:10.5px}
+  .stitle{font-size:13px}
 }
 @media (max-height:740px){
   .bigEmojiWrap{height:62px}
@@ -653,7 +714,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     </div>
     <div class="hud">
       <span class="counter">🪙 <span id="coinHud">0</span></span>
-      <button class="playerPill" id="playerChip" aria-label="플레이어 바꾸기"><span class="pe">👧</span><span class="pn">서아</span></button>
+      <button class="playerPill" id="playerChip" aria-label="내 닉네임 바꾸기"><span class="pe">🍨</span><span class="pn">닉네임</span></button>
       <button class="iconbtn rankbtn" id="rankBtn" aria-label="코인 순위표">🏆</button>
       <button class="iconbtn" id="muteBtn" aria-label="소리 켜기/끄기">🔊</button>
     </div>
@@ -698,12 +759,13 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     <h1>샤샤네 철판아이스크림</h1>
     <p class="sub">달콤 반짝 · -20°C 철판 수제 아이스크림 롤 ✨</p>
     <div class="pbox">
-      <div class="pbtitle"><span>지금 누가 만들까요? · <em id="startPName">서아</em></span><button class="prankbtn" id="startRankBtn">🏆 순위</button></div>
-      <div class="pchips" id="startChips"></div>
-      <div class="pnew">
-        <input id="startPInput" class="pin" type="text" maxlength="8" placeholder="다른 이름 직접 입력" autocomplete="off" enterkeyhint="done">
-        <button class="padd" id="startPAdd">추가</button>
+      <div class="pbtitle"><span>내 닉네임</span><button class="prankbtn" id="startRankBtn">🏆 순위</button></div>
+      <div class="nickrow">
+        <span class="nickemoji" id="startNickEmoji">🍨</span>
+        <b class="nickname" id="startNickName">달콤한 토끼</b>
+        <button class="nickedit" id="startNickEdit" type="button">바꾸기</button>
       </div>
+      <div class="pnote" id="startWeekNote">이번 주 <b>0코인</b> · 마감까지 D-6</div>
     </div>
     <button class="modeBtn" data-mode="order">
       <span class="mbIcon">🧑‍🍳</span>
@@ -740,27 +802,34 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   </div>
 </div>
 
-<!-- ================= 🏆 코인 랭킹 (명예의 전당) ================= -->
+<!-- ================= 🏆 주간 명예의 전당 ================= -->
 <div id="rankScreen" class="overlay">
   <div class="rankCard">
     <div class="rkHead">🏆 명예의 전당<button class="rkc" id="rkClose" aria-label="닫기">✕</button></div>
-    <div class="rkSub" id="rkSub">누적 코인 순위</div>
+    <div class="rkSub" id="rkSub">이번 주 랭킹</div>
+    <div class="rkMe">
+      <div class="rkMeTop"><span id="rkMeRank">내 순위 —</span><span id="rkMeCoins">0코인</span></div>
+      <div class="rkMeFoot"><span id="rkMePlays">이번 주 0판</span><span id="rkMeDDay">마감까지 D-6</span></div>
+    </div>
     <div class="rkList" id="rankList"></div>
-    <div class="rkHint" id="rkHint" hidden>아직 코인이 없어요. 첫 한 잔을 만들면 순위가 쌓여요! 🍨</div>
-    <div class="rkFoot"><button class="rkReset" id="rkReset">기록 초기화</button></div>
+    <div class="rkStatus" id="rkStatus">● 랭킹 불러오는 중…</div>
+    <div class="rkFoot"><button class="rkRefresh" id="rkRefresh" type="button">지금 새로고침</button></div>
   </div>
 </div>
 
-<!-- ================= 플레이어 고르기 ================= -->
-<div id="playerScreen" class="overlay">
-  <div class="psCard">
-    <div class="rkHead">🧑‍🍳 누가 만들까요?<button class="rkc" id="psClose" aria-label="닫기">✕</button></div>
-    <div class="rkSub">고른 이름으로 코인이 쌓여요</div>
-    <div class="pchips" id="modalChips"></div>
-    <div class="pnew">
-      <input id="modalPInput" class="pin" type="text" maxlength="8" placeholder="새 이름 (예: 할머니)" autocomplete="off" enterkeyhint="done">
-      <button class="padd" id="modalPAdd">추가</button>
+<!-- ================= 내 닉네임 정하기 ================= -->
+<div id="nickScreen" class="overlay">
+  <div class="nickCard">
+    <div class="nkHead">🍨 내 닉네임 정하기</div>
+    <p class="nkSub">이번 주 랭킹에 이 이름으로 올라가요 · 2~10자</p>
+    <div class="nkRow">
+      <span class="nkEmoji" id="nkEmoji">🍨</span>
+      <input id="nkInput" class="nkInput" type="text" maxlength="10" placeholder="예: 달콤한 토끼" autocomplete="off" enterkeyhint="done">
     </div>
+    <p class="nkErr" id="nkErr" hidden>예쁜 닉네임을 사용해 주세요!</p>
+    <button class="nkDice" id="nkDice" type="button">🎲 다른 이름 추천</button>
+    <button class="nkSave" id="nkSave" type="button">이 이름으로 시작!</button>
+    <button class="nkLater" id="nkLater" type="button" hidden>나중에 할게요</button>
   </div>
 </div>
 
@@ -4897,161 +4966,383 @@ function updateToolBadge(){
 }
 
 /* ============================================================
-   플레이어 · 코인 랭킹 (localStorage 저장)
-   sasane.players : { 이름: {coins, plays, best, updated} }
-   sasane.player  : 마지막으로 고른 플레이어
+   닉네임 · 주간(월~일) 온라인 랭킹 (Supabase)
+   - 내 닉네임 2~10자 · 비속어 필터 · 자동 추천
+   - player_id(UUID)로 같은 닉네임이어도 내 점수만 정확히 누적
+   - 주간 기준 : KST 월요일 00:00 ~ 일요일 23:59 (week_key = 월요일 날짜)
    ============================================================ */
-const P_KEY='sasane.players', P_CUR='sasane.player', P_OLD='sasane.coins';
-const P_SUGGEST=['서아','시아','엄마','아빠'];
-const P_EMOJI={'서아':'👧','시아':'👶','엄마':'💗','아빠':'🧢'};
-function pEmoji(n){ return P_EMOJI[n]||'🍨'; }
-function fmtCoin(n){ return (parseInt(n,10)||0).toLocaleString('ko-KR'); }
-function savePlayersTo(o){ try{ localStorage.setItem(P_KEY,JSON.stringify(o)); }catch(e){} }
-function loadPlayers(){
-  let o=null;
-  try{ o=JSON.parse(localStorage.getItem(P_KEY)||'null'); }catch(e){}
-  if(!o||typeof o!=='object'||Array.isArray(o)){
-    /* 첫 실행: 추천 플레이어 4명 생성. 이전 버전 공용 코인은 서아가 이어받는다 */
-    o={};
-    let legacy=0;
-    try{ legacy=parseInt(localStorage.getItem(P_OLD)||'0',10)||0; }catch(e){}
-    P_SUGGEST.forEach((n,i)=>{ o[n]={name:n,coins:i===0?legacy:0,plays:0,best:0,updated:Date.now()}; });
-    savePlayersTo(o);
-  }
-  const out={};
-  Object.keys(o).forEach(k=>{
-    const v=o[k]||{};
-    out[k]={coins:Math.max(0,parseInt(v.coins,10)||0),
-            plays:Math.max(0,parseInt(v.plays,10)||0),
-            best:Math.max(0,Math.min(100,parseInt(v.best,10)||0)),
-            updated:parseInt(v.updated,10)||0};
-  });
-  return out;
+const SB_URL='https://wthhetsaooaashdedksd.supabase.co';
+const SB_KEY='sb_publishable_8ZQpMVJV1nciknqz7c733A_j_UTxZD0';
+const SB_TABLE='/rest/v1/shasha_weekly_scores';
+const NICK_KEY='sasane.nickname', PID_KEY='sasane.pid', WEEK_KEY='sasane.week';
+const NICK_MIN=2, NICK_MAX=10;
+
+/* ---------- 이 기기 고유 player_id ---------- */
+function uuid4(){
+  try{ if(window.crypto&&crypto.randomUUID) return crypto.randomUUID(); }catch(e){}
+  const h='0123456789abcdef'; let s='';
+  for(let i=0;i<32;i++) s+=h[Math.floor(Math.random()*16)];
+  return s.slice(0,8)+'-'+s.slice(8,12)+'-4'+s.slice(13,16)+'-a'+s.slice(17,20)+'-'+s.slice(20,32);
 }
-let PLY=loadPlayers();
-let curPlayer=(function(){
-  let n='';
-  try{ n=(localStorage.getItem(P_CUR)||'').trim(); }catch(e){}
-  if(!n||!PLY[n]) n=PLY['서아']?'서아':(Object.keys(PLY)[0]||'서아');
-  if(!PLY[n]) PLY[n]={coins:0,plays:0,best:0,updated:Date.now()};
-  return n;
+let PID=(function(){
+  let v='';
+  try{ v=localStorage.getItem(PID_KEY)||''; }catch(e){}
+  if(!/^[0-9a-fA-F-]{8,64}$/.test(v)){
+    v=uuid4();
+    try{ localStorage.setItem(PID_KEY,v); }catch(e){}
+  }
+  return v;
 })();
-function savePlayers(){ savePlayersTo(PLY); }
-function saveCurPlayer(){ try{ localStorage.setItem(P_CUR,curPlayer); }catch(e){} }
-function playerStats(n){
-  if(!PLY[n]) PLY[n]={coins:0,plays:0,best:0,updated:Date.now()};
-  return PLY[n];
-}
-function sortedPlayers(){
-  return Object.keys(PLY).map(k=>({name:k,coins:PLY[k].coins,plays:PLY[k].plays,best:PLY[k].best,updated:PLY[k].updated}))
-    .sort((a,b)=> b.coins-a.coins || b.plays-a.plays || b.best-a.best || a.name.localeCompare(b.name,'ko'));
-}
-function rankOf(n){ const i=sortedPlayers().findIndex(p=>p.name===n); return i<0?0:i+1; }
-function addPlayerScore(coins,score){
-  const st=playerStats(curPlayer);
-  st.coins+=coins; st.plays+=1; st.best=Math.max(st.best,Math.min(100,score||0)); st.updated=Date.now();
-  savePlayers(); saveCurPlayer();
-}
-function setPlayer(name){
-  name=String(name||'').replace(/\s+/g,' ').trim().slice(0,8);
-  if(!name) return false;
-  if(!PLY[name]&&Object.keys(PLY).length>=20){ showTip('플레이어는 20명까지 만들 수 있어요',2400); return false; }
-  const isNew=!PLY[name];
-  playerStats(name);
-  curPlayer=name; saveCurPlayer(); savePlayers();
-  S.coins=PLY[name].coins;
-  updateHud(); renderPlayerPickers();
-  if(isNew) showTip('🎉 '+name+' 플레이어 시작! 코인은 0부터 모아요',2600);
-  return true;
-}
-function resetRank(){
-  Object.keys(PLY).forEach(k=>{ PLY[k].coins=0; PLY[k].plays=0; PLY[k].best=0; PLY[k].updated=Date.now(); });
-  savePlayers();
-  S.coins=PLY[curPlayer].coins;
-  updateHud(); renderPlayerPickers(); renderRank();
-  showTip('순위를 처음부터 다시 모아요 🧹',2400);
-}
-function pchip(name){
-  const b=document.createElement('button');
-  b.type='button';
-  b.className='pchip'+(name===curPlayer?' on':'');
-  b.dataset.name=name;
-  const pe=document.createElement('span'); pe.className='pe'; pe.textContent=pEmoji(name);
-  const pn=document.createElement('span'); pn.className='pn'; pn.textContent=name;
-  const pc=document.createElement('span'); pc.className='pc'; pc.textContent=fmtCoin(playerStats(name).coins)+'코인';
-  b.appendChild(pe); b.appendChild(pn); b.appendChild(pc);
-  b.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); setPlayer(name); });
-  return b;
-}
-function renderPlayerPickers(){
-  const names=P_SUGGEST.slice();
-  sortedPlayers().forEach(p=>{ if(names.indexOf(p.name)<0) names.push(p.name); });
-  if(names.indexOf(curPlayer)<0) names.push(curPlayer);
-  ['#startChips','#modalChips'].forEach(sel=>{
-    const box=$(sel); if(!box) return;
-    box.innerHTML='';
-    names.forEach(n=>box.appendChild(pchip(n)));
-  });
-  const lbl=$('#startPName'); if(lbl) lbl.textContent=curPlayer;
-  const pill=$('#playerChip');
-  if(pill){
-    pill.innerHTML='<span class="pe"></span><span class="pn"></span>';
-    pill.querySelector('.pe').textContent=pEmoji(curPlayer);
-    pill.querySelector('.pn').textContent=curPlayer;
-    const st=playerStats(curPlayer);
-    pill.title=curPlayer+' · 누적 '+fmtCoin(st.coins)+'코인 · '+st.plays+'판';
-    pill.setAttribute('aria-label',curPlayer+' 플레이어 · 누적 '+fmtCoin(st.coins)+'코인 · 플레이어 바꾸기');
+
+/* ---------- 귀여운 닉네임 자동 추천 ---------- */
+const NICK_ADJ=['달콤한','상큼한','반짝이는','몽글몽글','딸기맛','시원한','포근한','보들보들','샤르르','말랑말랑',
+  '새콤한','달달한','뽀송뽀송','햇살같은','소복소복','솜사탕','체리맛','초코맛','레몬맛','복숭아',
+  '바닐라','민트맛','자몽맛','꿀맛','별빛','노을빛','구름같은','반짝반짝','사르르','달빛'];
+const NICK_NOUN=['토끼','여우','펭귄','곰돌이','다람쥐','물개','고양이','강아지','햄스터','판다',
+  '사슴','오리','병아리','고래','수달','코알라','알파카','다람이','부엉이','거북이',
+  '호랑이','사자','양','젤리곰','푸딩','마카롱','쿠키','케이크','아이스크림','꽃게'];
+function pickOne(a){ return a[Math.floor(Math.random()*a.length)]; }
+function randomNick(){
+  for(let i=0;i<60;i++){
+    const n=pickOne(NICK_ADJ)+' '+pickOne(NICK_NOUN);
+    if(Array.from(n).length<=NICK_MAX && nickCheck(n).ok) return n;
   }
-  renderRank();
+  return '달콤한 토끼';
 }
-function renderRank(){
+
+/* ---------- 비속어 · 욕설 필터 ---------- */
+/* 공백·특수문자·반복글자·숫자/기호 우회(ㅅㅂ → ㅅ ㅂ, 시1발 등)까지 정규화해서 검사 */
+const BAD_SUB_KO=['씨발','씨팔','씨빨','시발','시팔','시빨','쉬발','쉬팔','ㅅㅂ','ㅆㅂ','씹','좆','좃','존나','존내',
+  '졸라','지랄','ㅈㄹ','병신','븅신','빙신','등신','ㅂㅅ','새끼','개새','개색','미친','또라이','돌아이',
+  '염병','쌍년','창녀','갈보','걸레','보지','자지','야동','섹스','섹쓰','오르가','강간','윤간','성폭',
+  '니애미','니미','느금마','엠창','앰창','한남','한녀','김치녀','된장녀','틀딱','홍어','짱깨','깜둥',
+  '똥꼬','꼬추','좆물','좆밥','발기','페니스','자위','딸딸이','똥침','씨불','시불','앰생','엠생'];
+const BAD_JAMO=['ㅅㅂ','ㅆㅂ','ㅂㅅ','ㅈㄹ','ㄲㅈ','ㅁㅊ','ㅅㅅㅂ','ㅈㅈ'];
+const BAD_SUB_EN=['fuck','fuk','fck','shit','sh1t','bitch','biatch','cunt','nigga','nigger','faggot','rape','porn',
+  'penis','vagina','whore','slut','bastard','motherfucker','sex','dildo','anus','orgasm','molest'];
+const BAD_WORD_EN=['ass','fag','tits','boob','piss','cum','gay','dyke','retard','stfu','kys','hoe'];
+function normalizeNick(s){
+  const rawStr=String(s||'').toLowerCase().replace(/[\u200b-\u200f\u2060\ufeff]/g,'');
+  let t=rawStr;
+  try{ t=t.normalize('NFKC'); }catch(e){}
+  const L={'0':'o','1':'i','3':'e','4':'a','5':'s','7':'t','8':'b','@':'a','$':'s','!':'i','+':'t','|':'i'};
+  const leet=t.replace(/[0134578@$!+|]/g,c=>L[c]||c);
+  const collapse=x=>x.replace(/(.)\1+/g,'$1');
+  /* 한글 자모(초성 욕설)는 NFKC가 호환용 자모를 조합용 자모로 바꾸므로
+     변환 전 문자열에서도 함께 검사한다 */
+  return {
+    leet:leet,
+    jamo:collapse(leet.replace(/\s+/g,''))+collapse(rawStr.replace(/\s+/g,'')),
+    hang:collapse(leet.replace(/[^가-힣]/g,'')),
+    compact:collapse(leet.replace(/[^a-z0-9가-힣]/g,''))
+  };
+}
+function nickCheck(name){
+  const raw=String(name==null?'':name).replace(/\s+/g,' ').trim();
+  const len=Array.from(raw).length;
+  if(len<NICK_MIN) return {ok:false,msg:'닉네임은 2자 이상으로 정해 주세요!'};
+  if(len>NICK_MAX) return {ok:false,msg:'닉네임은 10자까지 쓸 수 있어요!'};
+  const n=normalizeNick(raw);
+  for(const w of BAD_SUB_KO) if(n.hang.includes(w)||n.compact.includes(w))
+    return {ok:false,msg:'예쁜 닉네임을 사용해 주세요!'};
+  for(const j of BAD_JAMO) if(n.jamo.includes(j))
+    return {ok:false,msg:'예쁜 닉네임을 사용해 주세요!'};
+  for(const w of BAD_SUB_EN){
+    if(n.compact.includes(w)) return {ok:false,msg:'예쁜 닉네임을 사용해 주세요!'};
+    if(new RegExp('(^|[^a-z])'+w+'([^a-z]|$)').test(n.leet)) return {ok:false,msg:'예쁜 닉네임을 사용해 주세요!'};
+  }
+  for(const w of BAD_WORD_EN) if(new RegExp('(^|[^a-z])'+w+'([^a-z]|$)').test(n.leet))
+    return {ok:false,msg:'예쁜 닉네임을 사용해 주세요!'};
+  if(!/[가-힣a-zA-Z]/.test(raw)) return {ok:false,msg:'글자가 들어간 이름으로 정해 주세요!'};
+  return {ok:true,msg:''};
+}
+function nickEmojiFor(n){
+  const EMO=['🍨','🍓','🐰','🐻','🦊','🐧','🐿️','🐳','🦄','🍑','🍒','🐨','🐣','🌷','⭐','🍦'];
+  const s=String(n||''); let h=0;
+  for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))>>>0;
+  return EMO[h%EMO.length];
+}
+function fmtCoin(n){ return (parseInt(n,10)||0).toLocaleString('ko-KR'); }
+
+/* ---------- 주간(월~일 · KST) 계산 ---------- */
+function kstWall(){ return new Date(Date.now()+9*3600*1000); }   /* KST 벽시계를 UTC 필드로 */
+function weekKeyKST(){
+  const t=kstWall();
+  const day=t.getUTCDay();                       /* 0=일 … 6=토 */
+  const back=(day===0?6:day-1);
+  return new Date(t.getTime()-back*86400000).toISOString().slice(0,10);
+}
+function weekInfo(){
+  const wk=weekKeyKST();
+  const mon=new Date(wk+'T00:00:00Z');
+  const end=mon.getTime()+7*86400000;            /* 다음 월요일 00:00 KST */
+  const left=Math.max(0,Math.ceil((end-kstWall().getTime())/86400000));
+  const sun=new Date(end-86400000);
+  const md=d=>(d.getUTCMonth()+1)+'/'+d.getUTCDate();
+  return {wk:wk,label:md(mon)+'(월)~'+md(sun)+'(일)',dday:left};
+}
+function ddayText(d){ return d<=0?'오늘 밤 마감!':'마감까지 D-'+d; }
+
+/* ---------- 이번 주 내 점수 (로컬 저장 + 서버 동기화) ---------- */
+let W={week:'',coins:0,plays:0,nick:'',dirty:false,syncedAt:0,online:null,rows:[],rank:0,carry:0,
+  syncing:false,again:false,err:''};
+let syncTimer=0, boardTimer=0;
+function saveWeek(){
+  try{ localStorage.setItem(WEEK_KEY,JSON.stringify({week:W.week,coins:W.coins,plays:W.plays,nick:W.nick,dirty:W.dirty})); }catch(e){}
+}
+function loadWeek(){
+  const info=weekInfo();
+  let o=null;
+  try{ o=JSON.parse(localStorage.getItem(WEEK_KEY)||'null'); }catch(e){}
+  if(o&&typeof o==='object'&&o.week===info.wk){
+    W.coins=Math.max(0,parseInt(o.coins,10)||0);
+    W.plays=Math.max(0,parseInt(o.plays,10)||0);
+    W.dirty=!!o.dirty;
+  }else{
+    /* 새 주 시작 : 예전(가족 공용) 코인이 있으면 이번 주 점수로 이어받는다 */
+    let legacy=0;
+    try{
+      const p=JSON.parse(localStorage.getItem('sasane.players')||'null');
+      if(p&&typeof p==='object'){
+        Object.keys(p).forEach(k=>{ legacy=Math.max(legacy,parseInt(p[k]&&p[k].coins,10)||0); });
+      }else{
+        legacy=parseInt(localStorage.getItem('sasane.coins')||'0',10)||0;
+      }
+    }catch(e){}
+    W.coins=Math.max(0,legacy); W.plays=0; W.carry=W.coins; W.dirty=W.coins>0;
+  }
+  W.week=info.wk;
+  try{ W.nick=(localStorage.getItem(NICK_KEY)||'').trim(); }catch(e){}
+  saveWeek();
+  return info;
+}
+function addWeekly(coins){
+  if(weekKeyKST()!==W.week) loadWeek();
+  W.coins=Math.max(0,W.coins+(parseInt(coins,10)||0));
+  W.plays+=1; W.dirty=true;
+  S.coins=W.coins;
+  saveWeek(); updateHud(); renderNickUI();
+  scheduleSync(700);
+}
+function setNickname(name,silent){
+  const r=nickCheck(name);
+  if(!r.ok) return r;
+  W.nick=String(name).replace(/\s+/g,' ').trim();
+  try{ localStorage.setItem(NICK_KEY,W.nick); }catch(e){}
+  W.dirty=true; saveWeek(); renderNickUI();
+  if(!silent) showTip('🎉 '+W.nick+' 닉네임으로 시작!',2400);
+  syncNow();
+  return {ok:true,msg:''};
+}
+
+/* ---------- Supabase REST ---------- */
+function sbFetch(path,opt){
+  const o=opt||{};
+  o.headers=Object.assign({apikey:SB_KEY,Authorization:'Bearer '+SB_KEY},o.headers||{});
+  return fetch(SB_URL+path,o);
+}
+function scheduleSync(delay){
+  clearTimeout(syncTimer);
+  syncTimer=setTimeout(()=>{ syncNow(); }, delay==null?900:delay);
+}
+async function syncNow(){
+  if(!W.nick) return false;
+  if(W.syncing){ W.again=true; return false; }
+  W.syncing=true; updateSyncUI();
+  try{
+    const body=JSON.stringify([{player_id:PID,week_key:W.week,nickname:W.nick,
+      coins:Math.min(100000,Math.max(0,W.coins)),plays:Math.min(10000,Math.max(0,W.plays))}]);
+    const r=await sbFetch(SB_TABLE+'?on_conflict=player_id,week_key',{method:'POST',
+      headers:{'Content-Type':'application/json',Prefer:'resolution=merge-duplicates,return=minimal'},
+      body:body});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    W.dirty=false; W.online=true; W.err=''; W.syncedAt=Date.now();
+  }catch(e){
+    W.online=false; W.err=String((e&&e.message)||e);
+  }
+  W.syncing=false; saveWeek(); updateSyncUI();
+  if(W.online) await refreshBoard();
+  if(W.again){ W.again=false; if(W.dirty) syncNow(); }
+  return W.online;
+}
+async function refreshBoard(){
+  const info=weekInfo();
+  if(info.wk!==W.week) loadWeek();
+  try{
+    const q=SB_TABLE+'?select=player_id,nickname,coins,plays,updated_at'
+      +'&week_key=eq.'+encodeURIComponent(W.week)
+      +'&order=coins.desc,plays.asc,updated_at.asc&limit=50';
+    const r=await sbFetch(q,{headers:{Prefer:'count=exact'}});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const rows=await r.json();
+    W.rows=Array.isArray(rows)?rows:[];
+    W.online=true; W.err='';
+    const idx=W.rows.findIndex(x=>x.player_id===PID);
+    if(idx>=0){
+      W.rank=idx+1;
+      if(W.rows[idx].nickname&&W.rows[idx].nickname!==W.nick&&!W.dirty){
+        /* 다른 기기에서 닉네임을 바꾼 경우는 로컬을 따른다 */
+      }
+    }else if(W.coins>0){
+      try{
+        const r2=await sbFetch(SB_TABLE+'?select=player_id&week_key=eq.'+encodeURIComponent(W.week)
+          +'&coins=gt.'+Math.max(0,W.coins),{headers:{Prefer:'count=exact',Range:'0-0'}});
+        const cr=r2.headers.get('content-range')||'';
+        const tot=parseInt(cr.split('/')[1],10);
+        W.rank=isNaN(tot)?0:tot+1;
+      }catch(e){ W.rank=0; }
+    }else W.rank=0;
+  }catch(e){
+    W.online=false; W.err=String((e&&e.message)||e);
+  }
+  updateSyncUI(); renderBoard();
+  return W.rows;
+}
+
+/* ---------- 화면 그리기 ---------- */
+function updateSyncUI(){
+  const st=$('#rkStatus');
+  if(st){
+    if(!W.nick){ st.textContent='닉네임을 정하면 랭킹에 올라가요'; st.className='rkStatus'; }
+    else if(W.syncing){ st.textContent='⏳ 점수 올리는 중…'; st.className='rkStatus'; }
+    else if(W.online===false){ st.textContent='🔌 오프라인 — 이번 주 점수는 기기에 저장돼요'; st.className='rkStatus off'; }
+    else if(W.dirty){ st.textContent='⏳ 동기화 대기 중…'; st.className='rkStatus'; }
+    else{
+      const ago=W.syncedAt?Math.max(0,Math.round((Date.now()-W.syncedAt)/1000)):0;
+      st.textContent='● 실시간 연결됨 · '+(ago<3?'방금 동기화':(ago<60?ago+'초 전 동기화':Math.round(ago/60)+'분 전 동기화'));
+      st.className='rkStatus live';
+    }
+  }
+  const info=weekInfo();
+  const mr=$('#rkMeRank'), mc=$('#rkMeCoins'), mp=$('#rkMePlays'), md=$('#rkMeDDay');
+  if(mc) mc.textContent=fmtCoin(W.coins)+'코인';
+  if(mp) mp.textContent='이번 주 '+W.plays+'판';
+  if(md) md.textContent=ddayText(info.dday);
+  if(mr) mr.textContent=W.rank?('내 순위 '+W.rank+'등'):(W.coins>0?'내 순위 집계 중…':'내 순위 —');
+}
+function renderBoard(){
   const box=$('#rankList'); if(!box) return;
-  const list=sortedPlayers();
-  const medal=['👑','🥈','🥉'];
+  const info=weekInfo();
+  const sub=$('#rkSub');
+  if(sub) sub.textContent='이번 주 '+info.label+' · TOP 50';
   box.innerHTML='';
+  const list=(W.rows&&W.rows.length)?W.rows.slice():[];
+  if(!list.length){
+    const e=document.createElement('div');
+    e.className='rkEmpty';
+    e.innerHTML=(W.online===false)
+      ? '랭킹을 불러오지 못했어요.<br>이번 주 점수는 기기에 안전하게 저장돼 있어요 🍨'
+      : '이번 주 첫 주자예요!<br>한 잔 만들면 여기에 내 이름이 올라가요 🍨';
+    box.appendChild(e);
+  }
+  const medal=['🥇','🥈','🥉'];
   list.forEach((p,i)=>{
     const row=document.createElement('div');
-    row.className='rkRow'+(p.name===curPlayer?' me':'')+(i<3&&p.coins>0?' top':'');
+    row.className='rkRow'+(p.player_id===PID?' me':'')+(i<3&&p.coins>0?' top':'');
     const pos=document.createElement('span'); pos.className='rkPos';
-    if(i<3&&p.coins>0){ pos.textContent=medal[i]; }
+    if(i<3&&p.coins>0) pos.textContent=medal[i];
     else { const em=document.createElement('i'); em.textContent=String(i+1); pos.appendChild(em); }
     const who=document.createElement('span'); who.className='rkWho';
-    const emo=document.createElement('span'); emo.className='rkEmo'; emo.textContent=pEmoji(p.name);
-    const nm=document.createElement('b'); nm.textContent=p.name;
+    const emo=document.createElement('span'); emo.className='rkEmo'; emo.textContent=nickEmojiFor(p.nickname);
+    const nm=document.createElement('b'); nm.textContent=p.nickname||'이름없음';
     who.appendChild(emo); who.appendChild(nm);
-    if(p.name===curPlayer){ const tag=document.createElement('span'); tag.className='meTag'; tag.textContent='나'; who.appendChild(tag); }
+    if(p.player_id===PID){ const tag=document.createElement('span'); tag.className='meTag'; tag.textContent='나'; who.appendChild(tag); }
     const coin=document.createElement('span'); coin.className='rkCoin';
     const cb=document.createElement('b'); cb.textContent=fmtCoin(p.coins);
     const cs=document.createElement('small'); cs.textContent='코인';
     coin.appendChild(cb); coin.appendChild(cs);
-    const pl=document.createElement('span'); pl.className='rkPlays'; pl.textContent=p.plays+'판';
+    const pl=document.createElement('span'); pl.className='rkPlays'; pl.textContent=(parseInt(p.plays,10)||0)+'판';
     row.appendChild(pos); row.appendChild(who); row.appendChild(coin); row.appendChild(pl);
-    if(p.best>0){
-      const bs=document.createElement('span'); bs.className='rkBest'; bs.textContent='최고 '+p.best+'%';
-      bs.title='최고 완성도 '+p.best+'%';
-      row.appendChild(bs);
-    }
     box.appendChild(row);
   });
-  const total=list.reduce((s,p)=>s+p.coins,0);
-  const sub=$('#rkSub'); if(sub) sub.textContent='누적 코인 순위 · '+list.length+'명';
-  const hint=$('#rkHint'); if(hint) hint.hidden=!(list.length===0||total===0);
+  /* TOP 50 밖이면 내 기록을 마지막에 한 줄 더 */
+  if(list.length&&W.rank>list.length&&W.nick){
+    const row=document.createElement('div');
+    row.className='rkRow me';
+    const pos=document.createElement('span'); pos.className='rkPos';
+    const em=document.createElement('i'); em.textContent=String(W.rank); pos.appendChild(em);
+    const who=document.createElement('span'); who.className='rkWho';
+    const emo=document.createElement('span'); emo.className='rkEmo'; emo.textContent=nickEmojiFor(W.nick);
+    const nm=document.createElement('b'); nm.textContent=W.nick;
+    const tag=document.createElement('span'); tag.className='meTag'; tag.textContent='나';
+    who.appendChild(emo); who.appendChild(nm); who.appendChild(tag);
+    const coin=document.createElement('span'); coin.className='rkCoin';
+    const cb=document.createElement('b'); cb.textContent=fmtCoin(W.coins);
+    const cs=document.createElement('small'); cs.textContent='코인';
+    coin.appendChild(cb); coin.appendChild(cs);
+    row.appendChild(pos); row.appendChild(who); row.appendChild(coin);
+    box.appendChild(row);
+  }
 }
-function showRank(){ renderRank(); $('#rankScreen').classList.add('show'); }
-function showPlayers(){ renderPlayerPickers(); $('#playerScreen').classList.add('show'); }
+function renderNickUI(){
+  const nm=W.nick||'닉네임 정하기';
+  const emo=W.nick?nickEmojiFor(W.nick):'🍨';
+  const pill=$('#playerChip');
+  if(pill){
+    const pe=pill.querySelector('.pe'), pn=pill.querySelector('.pn');
+    if(pe) pe.textContent=emo;
+    if(pn) pn.textContent=nm;
+    pill.title=W.nick?(W.nick+' · 이번 주 '+fmtCoin(W.coins)+'코인'):'닉네임을 정해 주세요';
+    pill.setAttribute('aria-label',(W.nick?W.nick+' 닉네임 · ':'')+'닉네임 바꾸기');
+  }
+  const sn=$('#startNickName'); if(sn) sn.textContent=nm;
+  const se=$('#startNickEmoji'); if(se) se.textContent=emo;
+  const note=$('#startWeekNote');
+  if(note) note.innerHTML='이번 주 <b>'+fmtCoin(W.coins)+'코인</b> · '+ddayText(weekInfo().dday);
+  const rk=$('#rRank');
+  if(rk) rk.textContent='🏆 이번 주 내 순위: '+(W.rank?W.rank+'등':'—')+' ('+fmtCoin(W.coins)+'코인)';
+  updateSyncUI();
+}
+
+/* ---------- 닉네임 정하기 모달 ---------- */
+let nickMode='first', nickSug='';
+function openNick(mode){
+  nickMode=mode||'edit';
+  const inp=$('#nkInput'), err=$('#nkErr'), later=$('#nkLater'), save=$('#nkSave'), head=$('.nkHead');
+  if(!inp) return;
+  const first=(nickMode==='first');
+  nickSug=randomNick();
+  inp.value=W.nick||nickSug;
+  if(save) save.textContent=first?'이 이름으로 시작!':'이 이름으로 저장';
+  if(later) later.hidden=first;
+  if(err){ err.hidden=true; err.textContent='예쁜 닉네임을 사용해 주세요!'; err.className='nkErr'; }
+  updateNkEmoji();
+  $('#nickScreen').classList.add('show');
+  setTimeout(()=>{ try{ inp.focus(); inp.select(); }catch(e){} },80);
+}
+function updateNkEmoji(){
+  const v=($('#nkInput')||{}).value||'';
+  const e=$('#nkEmoji'); if(e) e.textContent=nickEmojiFor(v||' ');
+}
+function closeNick(){ const s=$('#nickScreen'); if(s) s.classList.remove('show'); }
+function nickError(msg){
+  const err=$('#nkErr'); if(!err) return;
+  err.hidden=false; err.className='nkErr'; err.textContent=msg;
+  const inp=$('#nkInput');
+  if(inp){ inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); }
+}
+function trySaveNick(){
+  const inp=$('#nkInput'); if(!inp) return;
+  const r=setNickname(inp.value);
+  if(!r.ok){ nickError(r.msg); return; }
+  closeNick();
+  AudioKit.ding();
+}
+
+/* ---------- 랭킹 화면 열기 ---------- */
+function showRank(){
+  renderBoard(); updateSyncUI();
+  $('#rankScreen').classList.add('show');
+  refreshBoard();
+  clearInterval(boardTimer);
+  boardTimer=setInterval(()=>{ if($('#rankScreen').classList.contains('show')) refreshBoard(); },20000);
+}
 function hideOverlay(sel){ const o=$(sel); if(o) o.classList.remove('show'); }
-function addPlayerFromInput(sel){
-  const inp=$(sel); if(!inp) return false;
-  const name=inp.value.replace(/\s+/g,' ').trim().slice(0,8);
-  if(!name){ inp.classList.add('shake'); setTimeout(()=>inp.classList.remove('shake'),400); inp.focus(); return false; }
-  const ok=setPlayer(name);
-  if(ok) inp.value='';
-  return ok;
-}
 function updateHud(){
-  el.coins.textContent=S.coins;
+  el.coins.textContent=fmtCoin(S.coins);
   el.mute.textContent=AudioKit.muted?'🔇':'🔊';
 }
+
 let tipTimer=0, comboTimer=0, pendingTip=null, introActive=false;
 function showTip(txt,ms){
   if(introActive){ pendingTip={txt:txt,ms:ms}; return; }
@@ -6031,8 +6322,7 @@ function computeResult(){
   /* 달콤함도 후하게 — 재료를 넣을수록 100%에 가깝게 */
   S.sweet=clamp(Math.round(56+sweet*0.72),56,100);
   S.lastCoins=S.stars*10+(S.stars===5?15:0)+(S.orderPerfect?15:0)+(S.decoReco?5:0);
-  S.coins+=S.lastCoins;
-  addPlayerScore(S.lastCoins,S.score);   /* 이 판 코인을 현재 플레이어 누적에 합산 */
+  addWeekly(S.lastCoins);   /* 이 판 코인을 이번 주 점수에 합산 → 서버 동기화 */
   updateHud();
   S.qChop=chopQ; S.qSpread=spreadQ; S.qRoll=rollQ;
   S.resultNote=note;
@@ -6068,9 +6358,8 @@ function showResult(){
     rb+='<br><em class="rbonus">'+bonus+'</em>';
   }
   $('#rNote').innerHTML=rb;
-  const pst=playerStats(curPlayer), prk=rankOf(curPlayer);
   const rkEl=$('#rRank');
-  if(rkEl) rkEl.textContent='🏆 현재 내 순위: '+prk+'등 (누적 '+fmtCoin(pst.coins)+'코인)';
+  if(rkEl) rkEl.textContent='🏆 이번 주 내 순위: '+(W.rank?W.rank+'등':'—')+' ('+fmtCoin(W.coins)+'코인)';
   $('#nextBtn2').textContent=isOrder?'다음 손님 ▶':'새 레시피 ▶';
   el.result.classList.add('show');
   confetti();
@@ -6232,7 +6521,8 @@ function loop(ts){
 
 /* ---------- init ---------- */
 function init(){
-  S.coins=playerStats(curPlayer).coins;
+  loadWeek();
+  S.coins=W.coins;
   try{ AudioKit.muted=localStorage.getItem('sasane.muted')==='1'; }catch(e){}
   AudioKit.setMuted(AudioKit.muted);
   updateHud();
@@ -6254,43 +6544,72 @@ function init(){
     updateHud(); if(!AudioKit.muted) AudioKit.ui();
   });
   el.dice.addEventListener('click',rollDice);
-  /* ---------- 플레이어 · 코인 랭킹 ---------- */
-  renderPlayerPickers();
+  /* ---------- 내 닉네임 · 주간 온라인 랭킹 ---------- */
+  renderNickUI();
   const rankBtn=$('#rankBtn');
   if(rankBtn) rankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
   const pillBtn=$('#playerChip');
-  if(pillBtn) pillBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showPlayers(); });
+  if(pillBtn) pillBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); openNick(W.nick?'edit':'first'); });
   const startRankBtn=$('#startRankBtn');
   if(startRankBtn) startRankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
+  const startNickEdit=$('#startNickEdit');
+  if(startNickEdit) startNickEdit.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); openNick('edit'); });
   const rRankBtn=$('#rRank');
   if(rRankBtn) rRankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
   const rkCloseBtn=$('#rkClose');
-  if(rkCloseBtn) rkCloseBtn.addEventListener('click',()=>{ AudioKit.ui(); hideOverlay('#rankScreen'); });
-  const psCloseBtn=$('#psClose');
-  if(psCloseBtn) psCloseBtn.addEventListener('click',()=>{ AudioKit.ui(); hideOverlay('#playerScreen'); });
-  const rkResetBtn=$('#rkReset');
-  if(rkResetBtn) rkResetBtn.addEventListener('click',()=>{
-    if(confirm('모든 플레이어의 누적 코인과 판수를 0으로 되돌릴까요?\n(플레이어 이름은 그대로 남아요)')){
-      AudioKit.ui(); resetRank();
-    }
-  });
-  const startAdd=$('#startPAdd');
-  if(startAdd) startAdd.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); addPlayerFromInput('#startPInput'); });
-  const modalAdd=$('#modalPAdd');
-  if(modalAdd) modalAdd.addEventListener('click',()=>{
+  if(rkCloseBtn) rkCloseBtn.addEventListener('click',()=>{ AudioKit.ui(); hideOverlay('#rankScreen'); clearInterval(boardTimer); });
+  const rkRefreshBtn=$('#rkRefresh');
+  if(rkRefreshBtn) rkRefreshBtn.addEventListener('click',()=>{ AudioKit.ui(); if(W.dirty) syncNow(); else refreshBoard(); });
+  const nkDiceBtn=$('#nkDice');
+  if(nkDiceBtn) nkDiceBtn.addEventListener('click',()=>{
     AudioKit.init(); AudioKit.ui();
-    if(addPlayerFromInput('#modalPInput')) hideOverlay('#playerScreen');
+    nickSug=randomNick();
+    const inp=$('#nkInput'); if(inp){ inp.value=nickSug; }
+    updateNkEmoji();
+    const err=$('#nkErr'); if(err) err.hidden=true;
   });
-  [['#startPInput','#startPAdd'],['#modalPInput','#modalPAdd']].forEach(pair=>{
-    const inp=$(pair[0]); if(!inp) return;
-    inp.addEventListener('keydown',e=>{
-      if(e.key==='Enter'){ e.preventDefault(); const btn=$(pair[1]); if(btn) btn.click(); }
+  const nkSaveBtn=$('#nkSave');
+  if(nkSaveBtn) nkSaveBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); trySaveNick(); });
+  const nkLaterBtn=$('#nkLater');
+  if(nkLaterBtn) nkLaterBtn.addEventListener('click',()=>{ AudioKit.ui(); closeNick(); });
+  const nkInp=$('#nkInput');
+  if(nkInp){
+    nkInp.addEventListener('input',()=>{
+      updateNkEmoji();
+      const v=nkInp.value;
+      const err=$('#nkErr');
+      if(!err) return;
+      if(!v.trim()){ err.hidden=true; return; }
+      const r=nickCheck(v);
+      if(r.ok){ err.hidden=true; }
+      else if(Array.from(v).length>=NICK_MIN){ err.hidden=false; err.className='nkErr'; err.textContent=r.msg; }
+      else { err.hidden=true; }
+    });
+    nkInp.addEventListener('keydown',e=>{
+      if(e.key==='Enter'){ e.preventDefault(); trySaveNick(); }
+    });
+  }
+  ['#rankScreen','#nickScreen'].forEach(sel=>{
+    const ov=$(sel); if(!ov) return;
+    ov.addEventListener('click',e=>{
+      if(e.target!==ov) return;
+      if(sel==='#nickScreen'&&!W.nick) return;   /* 첫 닉네임은 정하고 시작 */
+      AudioKit.ui(); hideOverlay(sel);
+      if(sel==='#rankScreen') clearInterval(boardTimer);
     });
   });
-  ['#rankScreen','#playerScreen'].forEach(sel=>{
-    const ov=$(sel); if(!ov) return;
-    ov.addEventListener('click',e=>{ if(e.target===ov){ AudioKit.ui(); hideOverlay(sel); } });
+  window.addEventListener('online',()=>{ if(W.dirty) syncNow(); else refreshBoard(); });
+  window.addEventListener('offline',()=>{ W.online=false; updateSyncUI(); });
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState!=='hidden'&&W.nick){ if(W.dirty) syncNow(); else if(!W.rows.length) refreshBoard(); }
   });
+  /* 첫 접속 : 닉네임 정하기 / 기존 코인 이어받기 안내 */
+  if(!W.nick){
+    setTimeout(()=>{ openNick('first'); },320);
+  }else{
+    if(W.carry>0) setTimeout(()=>{ showTip('이전에 모은 '+fmtCoin(W.carry)+'코인을 이번 주 점수로 이어받았어요!',3200); },1500);
+    if(W.dirty) scheduleSync(400); else refreshBoard();
+  }
   el.next.addEventListener('click',()=>{
     if(S.step===1&&S.base&&S.tops.length){ AudioKit.ui(); flash(0.3); goStep(2); }
     else if(S.step===6) finishCup();
@@ -6356,20 +6675,26 @@ function init(){
     spreadGeom(){ const sp=S.spr, sh=sprSheetRect(); return sp?{l:+sp.l.toFixed(3),r:+sp.r.toFixed(3),t:+sp.t.toFixed(3),b:+sp.b.toFixed(3),sheet:sh,pct:+(S.spreadPct||0).toFixed(3),scale:scale}:null; },
     sheet(){ return S.sheet?{x:S.sheet.x,y:S.sheet.y,w:S.sheet.w,h:S.sheet.h}:null; },
     recipe(){ return S.recipe?JSON.parse(JSON.stringify(S.recipe)):null; },
-    players(){ return {cur:curPlayer, list:sortedPlayers()}; },
-    setPlayer(n){ return setPlayer(n); },
-    setCoins(n,c){
-      const st=playerStats(n); st.coins=Math.max(0,parseInt(c,10)||0); savePlayers(); renderPlayerPickers();
-      if(n===curPlayer){ S.coins=st.coins; updateHud(); }
-      return true;
-    },
+    me(){ return {pid:PID, nick:W.nick, week:W.week, coins:W.coins, plays:W.plays, dirty:W.dirty,
+      online:W.online, rank:W.rank, rows:W.rows.length, err:W.err}; },
+    setNick(n){ return setNickname(n); },
+    nickCheck(n){ return nickCheck(n); },
+    sugg(){ return randomNick(); },
+    week(){ return weekInfo(); },
+    syncNow(){ return syncNow(); },
+    board(){ return refreshBoard(); },
+    setWeekly(c,p){ W.coins=Math.max(0,parseInt(c,10)||0); W.plays=Math.max(0,parseInt(p,10)||0);
+      W.dirty=true; S.coins=W.coins; saveWeek(); updateHud(); renderNickUI(); return true; },
     rank(){
       return {open:$('#rankScreen').classList.contains('show'), sub:($('#rkSub')||{}).textContent||'',
+        me:{rank:W.rank,coins:W.coins,plays:W.plays,online:W.online},
+        status:($('#rkStatus')||{}).textContent||'',
+        mine:($('#rkMeRank')||{}).textContent||'',
         rows:[].map.call(document.querySelectorAll('#rankList .rkRow'),r=>r.innerText.replace(/\s+/g,' ').trim())};
     },
     rankOpen(){ showRank(); return true; },
-    rankReset(){ resetRank(); return true; },
-    playerOpen(){ showPlayers(); return true; },
+    rankClose(){ hideOverlay('#rankScreen'); clearInterval(boardTimer); return true; },
+    nickOpen(){ openNick(W.nick?'edit':'first'); return true; },
     introSnap(phase){ return introSnap(phase); },
     introHide(){ introActive=false; I.timers.forEach(clearTimeout); I.timers=[]; introResetNodes(); return true; },
     devStep(n){
