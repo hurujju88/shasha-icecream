@@ -621,6 +621,8 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .rkCoin small{font-size:8px;font-weight:900;color:#9a6b8e}
 .rkPlays{flex:0 0 auto;font-size:8.5px;font-weight:900;color:#8a5e86;
   background:rgba(255,255,255,.95);border:1px solid rgba(205,145,185,.32);border-radius:999px;padding:2px 5px}
+.rkBest{flex:0 0 auto;font-size:8.5px;font-weight:900;color:#a35b00;
+  background:rgba(255,246,226,.96);border:1px solid rgba(255,190,70,.5);border-radius:999px;padding:2px 5px}
 .rkHint{font-size:9.5px;font-weight:800;color:#8a5e86;text-align:center;padding:12px 4px;line-height:1.5}
 .rkFoot{display:flex;justify-content:center;margin-top:8px}
 .rkReset{background:none;border:0;color:#a98aa2;font-size:9px;font-weight:800;text-decoration:underline;
@@ -4979,6 +4981,11 @@ function renderRank(){
     coin.appendChild(cb); coin.appendChild(cs);
     const pl=document.createElement('span'); pl.className='rkPlays'; pl.textContent=p.plays+'판';
     row.appendChild(pos); row.appendChild(who); row.appendChild(coin); row.appendChild(pl);
+    if(p.best>0){
+      const bs=document.createElement('span'); bs.className='rkBest'; bs.textContent='최고 '+p.best+'%';
+      bs.title='최고 완성도 '+p.best+'%';
+      row.appendChild(bs);
+    }
     box.appendChild(row);
   });
   const total=list.reduce((s,p)=>s+p.coins,0);
