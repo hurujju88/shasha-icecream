@@ -5219,6 +5219,8 @@ function updateSyncUI(){
   if(mp) mp.textContent='이번 주 '+W.plays+'판';
   if(md) md.textContent=ddayText(info.dday);
   if(mr) mr.textContent=W.rank?('내 순위 '+W.rank+'등'):(W.coins>0?'내 순위 집계 중…':'내 순위 —');
+  const rkEl=$('#rRank');
+  if(rkEl) rkEl.textContent='🏆 이번 주 내 순위: '+(W.rank?W.rank+'등':'—')+' ('+fmtCoin(W.coins)+'코인)';
 }
 function renderBoard(){
   const box=$('#rankList'); if(!box) return;
