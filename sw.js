@@ -1,5 +1,5 @@
 /* 샤샤네 철판아이스크림 - 서비스워커 (오프라인/빠른 로딩) */
-const CACHE = 'shasha-icecream-v2';
+const CACHE = 'shasha-icecream-v3';
 const ASSETS = [
   './',
   './index.html',

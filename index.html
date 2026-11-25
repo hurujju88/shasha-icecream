@@ -533,6 +533,111 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   border-left:1px dashed rgba(224,140,186,.55);border-top:1px dashed rgba(224,140,186,.55);transform:rotate(45deg)}
 #resultScreen.show .resultCard{animation:cardPop .42s cubic-bezier(.2,1.3,.4,1) both}
 @keyframes cardPop{0%{opacity:0;transform:translateY(14px) scale(.94)}60%{opacity:1;transform:translateY(-2px) scale(1.012)}100%{opacity:1;transform:none}}
+
+/* ================= 플레이어 · 코인 랭킹 ================= */
+/* 헤더 : 플레이어 칩 · 순위 버튼 */
+.playerPill{display:flex;align-items:center;gap:3px;max-width:78px;height:33px;padding:0 8px;border-radius:999px;
+  background:rgba(255,255,255,.86);border:1px solid rgba(196,140,190,.38);color:#7a2a5e;
+  font-size:11px;font-weight:900;letter-spacing:-.3px;cursor:pointer;font-family:inherit;
+  box-shadow:0 2px 8px rgba(150,80,130,.14)}
+.playerPill .pe{font-size:12px;line-height:1;flex:0 0 auto}
+.playerPill .pn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.playerPill:active{transform:scale(.94)}
+.rankbtn{font-size:15px}
+
+/* 시작 화면 : 플레이어 고르기 */
+.pbox{margin:0 0 11px;padding:9px 9px 8px;border-radius:15px;
+  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,246,252,.88));
+  border:1px solid rgba(255,160,200,.45);box-shadow:0 4px 14px rgba(160,75,130,.1),inset 0 1px 0 #fff}
+.pbtitle{display:flex;align-items:center;justify-content:space-between;gap:4px;font-size:10px;font-weight:900;
+  color:#8a2f66;letter-spacing:-.2px;margin:0 2px 6px 6px}
+.pbtitle em{font-style:normal;color:#b0175f}
+.prankbtn{flex:0 0 auto;height:20px;padding:0 8px;border-radius:999px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(180deg,#fff6e0,#ffe9c9);border:1px solid rgba(255,190,70,.75);color:#8a4b00;
+  font-size:9px;font-weight:900;letter-spacing:-.2px;box-shadow:0 1px 4px rgba(220,150,40,.2)}
+.prankbtn:active{transform:scale(.95)}
+.pchips{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+.pchip{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  min-width:64px;padding:5px 8px;border-radius:11px;cursor:pointer;font-family:inherit;
+  background:rgba(255,255,255,.96);border:1px solid rgba(205,145,185,.42);color:#5c2452;
+  box-shadow:0 1px 4px rgba(150,85,125,.1);transition:transform .08s,background .12s,border-color .12s}
+.pchip .pe{font-size:16px;line-height:1;transition:transform .12s}
+.pchip .pn{font-size:10.5px;font-weight:900;letter-spacing:-.3px;max-width:68px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pchip .pc{font-size:8px;font-weight:900;color:#b07a2a;letter-spacing:-.1px;font-variant-numeric:tabular-nums}
+.pchip.on{background:linear-gradient(180deg,#ffe6f2,#ffd2e8);border-color:rgba(255,105,160,.95);color:#7a0b3c;
+  box-shadow:0 0 0 1.5px rgba(255,110,160,.5) inset,0 3px 10px rgba(255,100,155,.26)}
+.pchip.on .pc{color:#a3124f}
+.pchip.on .pe{transform:scale(1.07)}
+.pchip:active{transform:scale(.95)}
+.pnew{display:flex;gap:5px;margin-top:7px}
+.pin{flex:1 1 auto;min-width:0;height:29px;border-radius:9px;border:1px solid rgba(205,145,185,.45);
+  background:rgba(255,255,255,.97);padding:0 9px;font-size:11px;font-weight:800;color:#5c2452;
+  font-family:inherit;letter-spacing:-.2px;outline:none}
+.pin::placeholder{color:#b192ab;font-weight:700}
+.pin:focus{border-color:rgba(255,105,160,.85);box-shadow:0 0 0 2px rgba(255,140,185,.22)}
+.pin.shake{animation:pinShake .36s}
+@keyframes pinShake{0%,100%{transform:none}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.padd{flex:0 0 auto;height:29px;padding:0 12px;border-radius:9px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,#ff7aab,#e8407f);color:#fff;font-size:11px;font-weight:900;
+  letter-spacing:-.2px;box-shadow:0 3px 9px rgba(220,60,120,.28);font-family:inherit}
+.padd:active{transform:scale(.96)}
+
+/* 결과 화면 : 내 순위 */
+.rRank{display:block;width:100%;margin:0 0 10px;padding:7px 8px;border-radius:11px;text-align:center;
+  background:linear-gradient(180deg,#fff8e6,#fff0f8);border:1px solid rgba(255,190,70,.6);
+  font-size:10.5px;font-weight:900;color:#8a4b00;letter-spacing:-.2px;cursor:pointer;font-family:inherit}
+.rRank:active{transform:scale(.985)}
+
+/* 랭킹 · 플레이어 모달 */
+#rankScreen,#playerScreen{z-index:50}
+.rankCard,.psCard{width:100%;max-width:326px;border-radius:22px;padding:13px 13px 11px;position:relative;
+  background:linear-gradient(180deg,#fffbfe,#fff1f9);border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 24px 60px rgba(125,50,105,.28),inset 0 1px 0 #fff;
+  animation:cardPop .34s cubic-bezier(.2,1.3,.4,1) both}
+.rkHead{position:relative;display:flex;align-items:center;justify-content:center;gap:5px;
+  font-size:15px;font-weight:900;color:var(--plum);letter-spacing:-.6px}
+.rkc{position:absolute;right:-2px;top:-3px;width:28px;height:28px;border-radius:9px;padding:0;
+  background:rgba(255,255,255,.92);border:1px solid rgba(196,140,190,.4);color:#7a2a5e;
+  font-size:12px;font-weight:900;display:grid;place-items:center;cursor:pointer;font-family:inherit}
+.rkc:active{transform:scale(.94)}
+.rkSub{text-align:center;font-size:9.5px;font-weight:800;color:#8a5e86;margin:2px 0 9px}
+.rkList{display:flex;flex-direction:column;gap:5px;max-height:min(50vh,340px);overflow-y:auto;
+  padding:1px;-webkit-overflow-scrolling:touch}
+.rkRow{display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:12px;
+  background:rgba(255,255,255,.9);border:1px solid rgba(222,155,195,.3)}
+.rkRow.top{background:linear-gradient(180deg,#fffaec,#fff3fa);border-color:rgba(255,190,70,.65)}
+.rkRow.me{border-color:rgba(255,105,160,.95);background:linear-gradient(180deg,#ffe9f3,#ffdcec);
+  box-shadow:0 0 0 1.5px rgba(255,110,160,.45) inset}
+.rkPos{flex:0 0 22px;text-align:center;font-size:14px;line-height:1}
+.rkPos i{font-style:normal;font-size:11px;font-weight:900;color:#ab7c9d}
+.rkWho{flex:1 1 auto;display:flex;align-items:center;gap:5px;min-width:0}
+.rkEmo{font-size:14px;line-height:1;flex:0 0 auto}
+.rkWho b{font-size:12.5px;font-weight:900;color:var(--plum);letter-spacing:-.35px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meTag{flex:0 0 auto;font-size:8px;font-weight:900;color:#fff;background:#f2487d;border-radius:999px;padding:1px 5px}
+.rkCoin{flex:0 0 auto;display:flex;align-items:baseline;gap:2px}
+.rkCoin b{font-size:13px;font-weight:900;color:#e0216b;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.rkCoin small{font-size:8px;font-weight:900;color:#9a6b8e}
+.rkPlays{flex:0 0 auto;font-size:8.5px;font-weight:900;color:#8a5e86;
+  background:rgba(255,255,255,.95);border:1px solid rgba(205,145,185,.32);border-radius:999px;padding:2px 5px}
+.rkHint{font-size:9.5px;font-weight:800;color:#8a5e86;text-align:center;padding:12px 4px;line-height:1.5}
+.rkFoot{display:flex;justify-content:center;margin-top:8px}
+.rkReset{background:none;border:0;color:#a98aa2;font-size:9px;font-weight:800;text-decoration:underline;
+  text-underline-offset:2px;cursor:pointer;padding:3px 6px;font-family:inherit}
+
+/* 좁은 화면(헤더 한 줄 유지) */
+@media (max-width:384px){
+  .brand b{font-size:12px}
+  .brand small{font-size:7.4px}
+  .hud{gap:4px}
+  .counter{font-size:11px;padding:5px 7px}
+  .playerPill{max-width:60px;padding:0 6px;font-size:10.5px}
+}
+@media (max-height:740px){
+  .bigEmojiWrap{height:62px}
+  .pbox{margin-bottom:8px;padding:7px 7px 6px}
+}
 </style>
 </head>
 <body>
@@ -544,6 +649,8 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     </div>
     <div class="hud">
       <span class="counter">🪙 <span id="coinHud">0</span></span>
+      <button class="playerPill" id="playerChip" aria-label="플레이어 바꾸기"><span class="pe">👧</span><span class="pn">서아</span></button>
+      <button class="iconbtn rankbtn" id="rankBtn" aria-label="코인 순위표">🏆</button>
       <button class="iconbtn" id="muteBtn" aria-label="소리 켜기/끄기">🔊</button>
     </div>
   </header>
@@ -586,6 +693,14 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     </div>
     <h1>샤샤네 철판아이스크림</h1>
     <p class="sub">달콤 반짝 · -20°C 철판 수제 아이스크림 롤 ✨</p>
+    <div class="pbox">
+      <div class="pbtitle"><span>지금 누가 만들까요? · <em id="startPName">서아</em></span><button class="prankbtn" id="startRankBtn">🏆 순위</button></div>
+      <div class="pchips" id="startChips"></div>
+      <div class="pnew">
+        <input id="startPInput" class="pin" type="text" maxlength="8" placeholder="다른 이름 직접 입력" autocomplete="off" enterkeyhint="done">
+        <button class="padd" id="startPAdd">추가</button>
+      </div>
+    </div>
     <button class="modeBtn" data-mode="order">
       <span class="mbIcon">🧑‍🍳</span>
       <span><b>주문 받기 (사장님 모드)</b><small>손님의 주문대로 만들어 별점과 코인 받기</small></span>
@@ -612,11 +727,36 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     </div>
     <p id="rMsg">손님이 감동했어요!</p>
     <div id="rNote"></div>
+    <button type="button" class="rRank" id="rRank" aria-label="코인 순위표 열기">🏆 현재 내 순위: 1등 (누적 0코인)</button>
     <div class="rbtns">
       <button id="againBtn">다시 만들기</button>
       <button id="nextBtn2">다음 손님 ▶</button>
     </div>
     <button id="modeBtn2" class="linkbtn">모드 다시 고르기</button>
+  </div>
+</div>
+
+<!-- ================= 🏆 코인 랭킹 (명예의 전당) ================= -->
+<div id="rankScreen" class="overlay">
+  <div class="rankCard">
+    <div class="rkHead">🏆 명예의 전당<button class="rkc" id="rkClose" aria-label="닫기">✕</button></div>
+    <div class="rkSub" id="rkSub">누적 코인 순위</div>
+    <div class="rkList" id="rankList"></div>
+    <div class="rkHint" id="rkHint" hidden>아직 코인이 없어요. 첫 한 잔을 만들면 순위가 쌓여요! 🍨</div>
+    <div class="rkFoot"><button class="rkReset" id="rkReset">기록 초기화</button></div>
+  </div>
+</div>
+
+<!-- ================= 플레이어 고르기 ================= -->
+<div id="playerScreen" class="overlay">
+  <div class="psCard">
+    <div class="rkHead">🧑‍🍳 누가 만들까요?<button class="rkc" id="psClose" aria-label="닫기">✕</button></div>
+    <div class="rkSub">고른 이름으로 코인이 쌓여요</div>
+    <div class="pchips" id="modalChips"></div>
+    <div class="pnew">
+      <input id="modalPInput" class="pin" type="text" maxlength="8" placeholder="새 이름 (예: 할머니)" autocomplete="off" enterkeyhint="done">
+      <button class="padd" id="modalPAdd">추가</button>
+    </div>
   </div>
 </div>
 
@@ -4709,8 +4849,153 @@ function updateToolBadge(){
   }
 }
 
-function loadCoins(){ try{ return parseInt(localStorage.getItem('sasane.coins')||'0',10)||0; }catch(e){ return 0; } }
-function saveCoins(v){ try{ localStorage.setItem('sasane.coins',String(v)); }catch(e){} }
+/* ============================================================
+   플레이어 · 코인 랭킹 (localStorage 저장)
+   sasane.players : { 이름: {coins, plays, best, updated} }
+   sasane.player  : 마지막으로 고른 플레이어
+   ============================================================ */
+const P_KEY='sasane.players', P_CUR='sasane.player', P_OLD='sasane.coins';
+const P_SUGGEST=['서아','시아','엄마','아빠'];
+const P_EMOJI={'서아':'👧','시아':'👶','엄마':'💗','아빠':'🧢'};
+function pEmoji(n){ return P_EMOJI[n]||'🍨'; }
+function fmtCoin(n){ return (parseInt(n,10)||0).toLocaleString('ko-KR'); }
+function savePlayersTo(o){ try{ localStorage.setItem(P_KEY,JSON.stringify(o)); }catch(e){} }
+function loadPlayers(){
+  let o=null;
+  try{ o=JSON.parse(localStorage.getItem(P_KEY)||'null'); }catch(e){}
+  if(!o||typeof o!=='object'||Array.isArray(o)){
+    /* 첫 실행: 추천 플레이어 4명 생성. 이전 버전 공용 코인은 서아가 이어받는다 */
+    o={};
+    let legacy=0;
+    try{ legacy=parseInt(localStorage.getItem(P_OLD)||'0',10)||0; }catch(e){}
+    P_SUGGEST.forEach((n,i)=>{ o[n]={name:n,coins:i===0?legacy:0,plays:0,best:0,updated:Date.now()}; });
+    savePlayersTo(o);
+  }
+  const out={};
+  Object.keys(o).forEach(k=>{
+    const v=o[k]||{};
+    out[k]={coins:Math.max(0,parseInt(v.coins,10)||0),
+            plays:Math.max(0,parseInt(v.plays,10)||0),
+            best:Math.max(0,Math.min(100,parseInt(v.best,10)||0)),
+            updated:parseInt(v.updated,10)||0};
+  });
+  return out;
+}
+let PLY=loadPlayers();
+let curPlayer=(function(){
+  let n='';
+  try{ n=(localStorage.getItem(P_CUR)||'').trim(); }catch(e){}
+  if(!n||!PLY[n]) n=PLY['서아']?'서아':(Object.keys(PLY)[0]||'서아');
+  if(!PLY[n]) PLY[n]={coins:0,plays:0,best:0,updated:Date.now()};
+  return n;
+})();
+function savePlayers(){ savePlayersTo(PLY); }
+function saveCurPlayer(){ try{ localStorage.setItem(P_CUR,curPlayer); }catch(e){} }
+function playerStats(n){
+  if(!PLY[n]) PLY[n]={coins:0,plays:0,best:0,updated:Date.now()};
+  return PLY[n];
+}
+function sortedPlayers(){
+  return Object.keys(PLY).map(k=>({name:k,coins:PLY[k].coins,plays:PLY[k].plays,best:PLY[k].best,updated:PLY[k].updated}))
+    .sort((a,b)=> b.coins-a.coins || b.plays-a.plays || b.best-a.best || a.name.localeCompare(b.name,'ko'));
+}
+function rankOf(n){ const i=sortedPlayers().findIndex(p=>p.name===n); return i<0?0:i+1; }
+function addPlayerScore(coins,score){
+  const st=playerStats(curPlayer);
+  st.coins+=coins; st.plays+=1; st.best=Math.max(st.best,Math.min(100,score||0)); st.updated=Date.now();
+  savePlayers(); saveCurPlayer();
+}
+function setPlayer(name){
+  name=String(name||'').replace(/\s+/g,' ').trim().slice(0,8);
+  if(!name) return false;
+  if(!PLY[name]&&Object.keys(PLY).length>=20){ showTip('플레이어는 20명까지 만들 수 있어요',2400); return false; }
+  const isNew=!PLY[name];
+  playerStats(name);
+  curPlayer=name; saveCurPlayer(); savePlayers();
+  S.coins=PLY[name].coins;
+  updateHud(); renderPlayerPickers();
+  if(isNew) showTip('🎉 '+name+' 플레이어 시작! 코인은 0부터 모아요',2600);
+  return true;
+}
+function resetRank(){
+  Object.keys(PLY).forEach(k=>{ PLY[k].coins=0; PLY[k].plays=0; PLY[k].best=0; PLY[k].updated=Date.now(); });
+  savePlayers();
+  S.coins=PLY[curPlayer].coins;
+  updateHud(); renderPlayerPickers(); renderRank();
+  showTip('순위를 처음부터 다시 모아요 🧹',2400);
+}
+function pchip(name){
+  const b=document.createElement('button');
+  b.type='button';
+  b.className='pchip'+(name===curPlayer?' on':'');
+  b.dataset.name=name;
+  const pe=document.createElement('span'); pe.className='pe'; pe.textContent=pEmoji(name);
+  const pn=document.createElement('span'); pn.className='pn'; pn.textContent=name;
+  const pc=document.createElement('span'); pc.className='pc'; pc.textContent=fmtCoin(playerStats(name).coins)+'코인';
+  b.appendChild(pe); b.appendChild(pn); b.appendChild(pc);
+  b.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); setPlayer(name); });
+  return b;
+}
+function renderPlayerPickers(){
+  const names=P_SUGGEST.slice();
+  sortedPlayers().forEach(p=>{ if(names.indexOf(p.name)<0) names.push(p.name); });
+  if(names.indexOf(curPlayer)<0) names.push(curPlayer);
+  ['#startChips','#modalChips'].forEach(sel=>{
+    const box=$(sel); if(!box) return;
+    box.innerHTML='';
+    names.forEach(n=>box.appendChild(pchip(n)));
+  });
+  const lbl=$('#startPName'); if(lbl) lbl.textContent=curPlayer;
+  const pill=$('#playerChip');
+  if(pill){
+    pill.innerHTML='<span class="pe"></span><span class="pn"></span>';
+    pill.querySelector('.pe').textContent=pEmoji(curPlayer);
+    pill.querySelector('.pn').textContent=curPlayer;
+    const st=playerStats(curPlayer);
+    pill.title=curPlayer+' · 누적 '+fmtCoin(st.coins)+'코인 · '+st.plays+'판';
+    pill.setAttribute('aria-label',curPlayer+' 플레이어 · 누적 '+fmtCoin(st.coins)+'코인 · 플레이어 바꾸기');
+  }
+  renderRank();
+}
+function renderRank(){
+  const box=$('#rankList'); if(!box) return;
+  const list=sortedPlayers();
+  const medal=['👑','🥈','🥉'];
+  box.innerHTML='';
+  list.forEach((p,i)=>{
+    const row=document.createElement('div');
+    row.className='rkRow'+(p.name===curPlayer?' me':'')+(i<3&&p.coins>0?' top':'');
+    const pos=document.createElement('span'); pos.className='rkPos';
+    if(i<3&&p.coins>0){ pos.textContent=medal[i]; }
+    else { const em=document.createElement('i'); em.textContent=String(i+1); pos.appendChild(em); }
+    const who=document.createElement('span'); who.className='rkWho';
+    const emo=document.createElement('span'); emo.className='rkEmo'; emo.textContent=pEmoji(p.name);
+    const nm=document.createElement('b'); nm.textContent=p.name;
+    who.appendChild(emo); who.appendChild(nm);
+    if(p.name===curPlayer){ const tag=document.createElement('span'); tag.className='meTag'; tag.textContent='나'; who.appendChild(tag); }
+    const coin=document.createElement('span'); coin.className='rkCoin';
+    const cb=document.createElement('b'); cb.textContent=fmtCoin(p.coins);
+    const cs=document.createElement('small'); cs.textContent='코인';
+    coin.appendChild(cb); coin.appendChild(cs);
+    const pl=document.createElement('span'); pl.className='rkPlays'; pl.textContent=p.plays+'판';
+    row.appendChild(pos); row.appendChild(who); row.appendChild(coin); row.appendChild(pl);
+    box.appendChild(row);
+  });
+  const total=list.reduce((s,p)=>s+p.coins,0);
+  const sub=$('#rkSub'); if(sub) sub.textContent='누적 코인 순위 · '+list.length+'명';
+  const hint=$('#rkHint'); if(hint) hint.hidden=!(list.length===0||total===0);
+}
+function showRank(){ renderRank(); $('#rankScreen').classList.add('show'); }
+function showPlayers(){ renderPlayerPickers(); $('#playerScreen').classList.add('show'); }
+function hideOverlay(sel){ const o=$(sel); if(o) o.classList.remove('show'); }
+function addPlayerFromInput(sel){
+  const inp=$(sel); if(!inp) return false;
+  const name=inp.value.replace(/\s+/g,' ').trim().slice(0,8);
+  if(!name){ inp.classList.add('shake'); setTimeout(()=>inp.classList.remove('shake'),400); inp.focus(); return false; }
+  const ok=setPlayer(name);
+  if(ok) inp.value='';
+  return ok;
+}
 function updateHud(){
   el.coins.textContent=S.coins;
   el.mute.textContent=AudioKit.muted?'🔇':'🔊';
@@ -5695,7 +5980,8 @@ function computeResult(){
   S.sweet=clamp(Math.round(56+sweet*0.72),56,100);
   S.lastCoins=S.stars*10+(S.stars===5?15:0)+(S.orderPerfect?15:0)+(S.decoReco?5:0);
   S.coins+=S.lastCoins;
-  saveCoins(S.coins); updateHud();
+  addPlayerScore(S.lastCoins,S.score);   /* 이 판 코인을 현재 플레이어 누적에 합산 */
+  updateHud();
   S.qChop=chopQ; S.qSpread=spreadQ; S.qRoll=rollQ;
   S.resultNote=note;
 }
@@ -5730,6 +6016,9 @@ function showResult(){
     rb+='<br><em class="rbonus">'+bonus+'</em>';
   }
   $('#rNote').innerHTML=rb;
+  const pst=playerStats(curPlayer), prk=rankOf(curPlayer);
+  const rkEl=$('#rRank');
+  if(rkEl) rkEl.textContent='🏆 현재 내 순위: '+prk+'등 (누적 '+fmtCoin(pst.coins)+'코인)';
   $('#nextBtn2').textContent=isOrder?'다음 손님 ▶':'새 레시피 ▶';
   el.result.classList.add('show');
   confetti();
@@ -5883,7 +6172,7 @@ function loop(ts){
 
 /* ---------- init ---------- */
 function init(){
-  S.coins=loadCoins();
+  S.coins=playerStats(curPlayer).coins;
   try{ AudioKit.muted=localStorage.getItem('sasane.muted')==='1'; }catch(e){}
   AudioKit.setMuted(AudioKit.muted);
   updateHud();
@@ -5905,6 +6194,43 @@ function init(){
     updateHud(); if(!AudioKit.muted) AudioKit.ui();
   });
   el.dice.addEventListener('click',rollDice);
+  /* ---------- 플레이어 · 코인 랭킹 ---------- */
+  renderPlayerPickers();
+  const rankBtn=$('#rankBtn');
+  if(rankBtn) rankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
+  const pillBtn=$('#playerChip');
+  if(pillBtn) pillBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showPlayers(); });
+  const startRankBtn=$('#startRankBtn');
+  if(startRankBtn) startRankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
+  const rRankBtn=$('#rRank');
+  if(rRankBtn) rRankBtn.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); showRank(); });
+  const rkCloseBtn=$('#rkClose');
+  if(rkCloseBtn) rkCloseBtn.addEventListener('click',()=>{ AudioKit.ui(); hideOverlay('#rankScreen'); });
+  const psCloseBtn=$('#psClose');
+  if(psCloseBtn) psCloseBtn.addEventListener('click',()=>{ AudioKit.ui(); hideOverlay('#playerScreen'); });
+  const rkResetBtn=$('#rkReset');
+  if(rkResetBtn) rkResetBtn.addEventListener('click',()=>{
+    if(confirm('모든 플레이어의 누적 코인과 판수를 0으로 되돌릴까요?\n(플레이어 이름은 그대로 남아요)')){
+      AudioKit.ui(); resetRank();
+    }
+  });
+  const startAdd=$('#startPAdd');
+  if(startAdd) startAdd.addEventListener('click',()=>{ AudioKit.init(); AudioKit.ui(); addPlayerFromInput('#startPInput'); });
+  const modalAdd=$('#modalPAdd');
+  if(modalAdd) modalAdd.addEventListener('click',()=>{
+    AudioKit.init(); AudioKit.ui();
+    if(addPlayerFromInput('#modalPInput')) hideOverlay('#playerScreen');
+  });
+  [['#startPInput','#startPAdd'],['#modalPInput','#modalPAdd']].forEach(pair=>{
+    const inp=$(pair[0]); if(!inp) return;
+    inp.addEventListener('keydown',e=>{
+      if(e.key==='Enter'){ e.preventDefault(); const btn=$(pair[1]); if(btn) btn.click(); }
+    });
+  });
+  ['#rankScreen','#playerScreen'].forEach(sel=>{
+    const ov=$(sel); if(!ov) return;
+    ov.addEventListener('click',e=>{ if(e.target===ov){ AudioKit.ui(); hideOverlay(sel); } });
+  });
   el.next.addEventListener('click',()=>{
     if(S.step===1&&S.base&&S.tops.length){ AudioKit.ui(); flash(0.3); goStep(2); }
     else if(S.step===6) finishCup();
@@ -5970,6 +6296,20 @@ function init(){
     spreadGeom(){ const sp=S.spr, sh=sprSheetRect(); return sp?{l:+sp.l.toFixed(3),r:+sp.r.toFixed(3),t:+sp.t.toFixed(3),b:+sp.b.toFixed(3),sheet:sh,pct:+(S.spreadPct||0).toFixed(3),scale:scale}:null; },
     sheet(){ return S.sheet?{x:S.sheet.x,y:S.sheet.y,w:S.sheet.w,h:S.sheet.h}:null; },
     recipe(){ return S.recipe?JSON.parse(JSON.stringify(S.recipe)):null; },
+    players(){ return {cur:curPlayer, list:sortedPlayers()}; },
+    setPlayer(n){ return setPlayer(n); },
+    setCoins(n,c){
+      const st=playerStats(n); st.coins=Math.max(0,parseInt(c,10)||0); savePlayers(); renderPlayerPickers();
+      if(n===curPlayer){ S.coins=st.coins; updateHud(); }
+      return true;
+    },
+    rank(){
+      return {open:$('#rankScreen').classList.contains('show'), sub:($('#rkSub')||{}).textContent||'',
+        rows:[].map.call(document.querySelectorAll('#rankList .rkRow'),r=>r.innerText.replace(/\s+/g,' ').trim())};
+    },
+    rankOpen(){ showRank(); return true; },
+    rankReset(){ resetRank(); return true; },
+    playerOpen(){ showPlayers(); return true; },
     introSnap(phase){ return introSnap(phase); },
     introHide(){ introActive=false; I.timers.forEach(clearTimeout); I.timers=[]; introResetNodes(); return true; },
     devStep(n){
