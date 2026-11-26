@@ -68,6 +68,11 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.95}
 .onote b{color:#c0206c;font-weight:900}
 .oline{display:flex;gap:3.5px;margin-top:4px;flex-wrap:wrap;max-height:48px;overflow:hidden}
+/* 복잡한(스페셜) 주문 : 요약 칩을 작게 해서 여러 줄도 잘리지 않게 */
+#orderbar.dense{padding:6px 8px}
+#orderbar.dense .oline{gap:3px;max-height:62px}
+#orderbar.dense .req{font-size:9.5px;padding:2px 4.5px;border-radius:6px}
+#orderbar.dense .oname{font-size:14px}
 .req{font-size:10.5px;font-weight:900;padding:2.5px 6px;border-radius:7px;background:rgba(255,243,249,.95);line-height:1.2;
   border:1px solid rgba(224,130,178,.38);color:#8c2a63;white-space:nowrap}
 .req.miss{background:#fff4dd;border-color:rgba(242,178,60,.75);color:#8a5500}
@@ -263,10 +268,25 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .rName{margin:2px 0 4px;font-size:17px;font-weight:900;letter-spacing:-.7px;line-height:1.2;color:var(--plum)}
 .stars{font-size:24px;letter-spacing:2px;color:#f0d6e6;line-height:1.1;text-shadow:0 1px 0 #fff}
 .stars b{color:#ffb300;text-shadow:0 0 14px rgba(255,180,0,.55);font-weight:400}
-.rscore{display:flex;align-items:baseline;justify-content:center;gap:2px;margin:4px 0 1px}
-.rscore em{font-style:normal;font-size:9px;font-weight:900;color:#8a5e86;letter-spacing:.4px;margin-right:3px}
-.rscore b{font-size:27px;font-weight:900;color:#e0216b;letter-spacing:-1.4px;line-height:1}
-.rscore span{font-size:11px;font-weight:900;color:#e0216b;margin-left:1px}
+.rscore{display:flex;align-items:baseline;justify-content:center;gap:2px;margin:3px 0 1px}
+.rscore em{font-style:normal;font-size:10px;font-weight:900;color:#8a5e86;letter-spacing:.4px;margin-right:3px}
+.rscore b{font-size:34px;font-weight:900;color:#e0216b;letter-spacing:-1.6px;line-height:1}
+.rscore span{font-size:13px;font-weight:900;color:#e0216b;margin-left:1px}
+/* 결과 : 100점제 — 주문서와 다른 항목 */
+.rdiff{margin:5px 0 7px;padding:7px 8px 8px;border-radius:13px;background:rgba(255,255,255,.88);
+  border:1px solid rgba(222,155,195,.36);text-align:center}
+.rdiff[hidden]{display:none}
+.rdh{font-size:11px;font-weight:900;color:#7a2a5e;letter-spacing:-.3px;line-height:1.3}
+.rdh b{color:#e0216b;font-size:12.5px}
+.rdh span{display:inline-block;margin-left:3px;font-size:10.5px;color:#c0206c;font-weight:900}
+.rdh.ok{color:#177a4b;font-size:12px}
+.rdh.ok b{color:#177a4b}
+.rdchips{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:5px}
+.rdchip{display:inline-flex;align-items:center;gap:2px;font-size:10px;font-weight:900;color:#8a3b00;
+  background:#fff6e2;border:1px solid rgba(242,178,60,.6);border-radius:8px;padding:2px 6px;
+  line-height:1.25;letter-spacing:-.3px}
+.rdchip i{font-style:normal;font-size:11px;line-height:1}
+.rdchip.more{color:#7a5a87;background:rgba(255,246,252,.95);border-color:rgba(210,160,200,.5)}
 .rgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0 9px}
 .rgrid div{background:rgba(255,246,252,.96);border:1px solid rgba(222,155,195,.32);border-radius:11px;padding:6px 2px}
 .rgrid small{display:block;font-size:8.5px;color:#7a5a87;font-weight:800;letter-spacing:.3px}
@@ -476,13 +496,17 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 .iOHead{display:flex;align-items:center;gap:6px;margin:0 0 5px;font-size:10.5px;font-weight:900;color:#c0206c;letter-spacing:-.3px}
 .iOHead em{font-style:normal;font-size:9px;font-weight:800;color:#95407c;background:rgba(255,224,240,.95);
   border-radius:999px;padding:1.5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:63%}
-.iORow{display:flex;align-items:center;gap:7px;height:24px}
+.iORow{display:flex;align-items:center;gap:7px;min-height:24px}
 .iORow+.iORow{margin-top:2px}
+.iOLvl{margin-left:auto;flex:0 0 auto;font-size:9px;font-weight:900;color:#a01253;letter-spacing:-.3px;
+  background:linear-gradient(160deg,#ffe0ef,#e9dcff);border-radius:999px;padding:1.5px 7px;white-space:nowrap}
+.iOLvl.hard{background:linear-gradient(160deg,#ffe08a,#ffd3e9);color:#8a4b00}
 .iOK{flex:0 0 auto;width:45px;text-align:center;font-size:9px;font-weight:900;letter-spacing:-.4px;color:#9c2a6a;
   background:linear-gradient(160deg,#ffe6f2,#f1e2ff);border-radius:7px;padding:2.5px 0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.9)}
 .iORow.deco .iOK{background:linear-gradient(160deg,#e6f8ff,#ffe6f4);color:#14708f}
-.iOV{flex:1 1 auto;min-width:0;font-size:13px;font-weight:900;color:#4d1740;letter-spacing:-.5px;line-height:1.15;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iOV{flex:1 1 auto;min-width:0;font-size:13px;font-weight:900;color:#4d1740;letter-spacing:-.5px;line-height:1.22;
+  white-space:normal;overflow-wrap:anywhere;word-break:keep-all}
+.iOV i{font-style:normal;display:inline-block;margin:0 5px 1px 0;white-space:nowrap}
 .iOrder.in .iORow{animation:iORowIn .28s ease-out both}
 .iOrder.in .iORow:nth-child(2){animation-delay:.10s}
 .iOrder.in .iORow:nth-child(3){animation-delay:.16s}
@@ -492,8 +516,8 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 /* 짧은 화면에서는 주문서 카드가 덮는 벽 장식(창·병·선반)을 정리해 깔끔하게 */
 @media (max-height:800px){
   .iWindow,.iJars,.iShelf{opacity:0}
-  .iOrder .iORow{height:22px}
-  .iOV{font-size:12.5px}
+  .iOrder .iORow{min-height:22px}
+  .iOV{font-size:12px}
 }
 /* 터치 안내 */
 .iHint{position:absolute;left:50%;bottom:3.4%;transform:translateX(-50%);z-index:8;white-space:nowrap;
@@ -769,7 +793,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     </div>
     <button class="modeBtn" data-mode="order">
       <span class="mbIcon">🧑‍🍳</span>
-      <span><b>주문 받기 (사장님 모드)</b><small>손님의 주문대로 만들어 별점과 코인 받기</small></span>
+      <span><b>주문 받기 (사장님 모드)</b><small>주문서와 똑같으면 100점 · 다르면 -5점</small></span>
     </button>
     <button class="modeBtn alt" data-mode="free">
       <span class="mbIcon">🎲</span>
@@ -784,8 +808,9 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
     <div class="ravatarWrap"><div class="rcrown" id="rAvatar">🐰</div><span class="rreact" id="rReact">💖</span></div>
     <div class="rName" id="rName">오레오 누텔라 스페셜</div>
     <div class="rwho" id="rWho">달콤파 토끼</div>
-    <div class="rscore"><em>완성도</em><b id="rScore">98</b><span>%</span></div>
+    <div class="rscore"><em>점수</em><b id="rScore">100</b><span>점</span></div>
     <div class="stars" id="rStars"></div>
+    <div id="rDiff" class="rdiff" hidden></div>
     <div class="rgrid">
       <div><small>달콤함</small><b id="rSweet">92%</b></div>
       <div><small>롤 상태</small><b id="rRoll">완벽</b></div>
@@ -860,7 +885,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 
     <!-- 손님 주문서 : 베이스 · 재료 · 컵 · 토핑을 한눈에 -->
     <div class="iOrder" id="iOrder" aria-hidden="true">
-      <div class="iOHead"><span>📋 주문서</span><em id="iOName">오늘의 주문</em></div>
+      <div class="iOHead"><span>📋 주문서</span><em id="iOName">오늘의 주문</em><b class="iOLvl" id="iOLvl" hidden>🍦 보통</b></div>
       <div class="iORow" id="iORowBase"><span class="iOK">베이스</span><b class="iOV" id="iOVBase">우유·생크림</b></div>
       <div class="iORow" id="iORowTops"><span class="iOK">재료</span><b class="iOV" id="iOVTops">—</b></div>
       <div class="iORow" id="iORowCup"><span class="iOK">컵</span><b class="iOV" id="iOVCup">—</b></div>
@@ -877,7 +902,7 @@ header{position:relative;z-index:2;flex:0 0 auto;height:40px;display:flex;align-
 <script>'use strict';
 (function(){
 /* ============================================================
-   🎀 샤샤네 철판아이스크림  v4 - 리얼 도구 · 질감 업그레이드
+   🎀 샤샤네 철판아이스크림  v7 - 100점제 · 복잡한 주문서
    단일 HTML / Canvas 2D / Web Audio API
    ============================================================ */
 const TAU=Math.PI*2;
@@ -973,19 +998,33 @@ const CUP_DESIGNS=[
   {id:'aurora',name:'오로라',   en:'AURORA',      e:'🌌', a:'#f0e6ff', b:'#ffc0e0'}
 ];
 
+/* 주문서 — lvl: easy(간단) · normal(보통) · hard(스페셜 = 재료·토핑이 많은 복잡한 주문) */
 const RECIPES=[
-  {id:'oreo',   name:'오레오 누텔라 스페셜', base:'choco', tops:['oreo','nutella'],            cup:'heart',    decos:['pearl'],             cust:'🐰', who:'달콤파 토끼',     line:'오레오랑 누텔라 듬뿍! 핑크리본컵에 별사탕까지 올려 주세요!'},
-  {id:'strawb', name:'딸기 바나나 스윗',     base:'straw', tops:['strawberry','banana'],         cup:'heart',    decos:['heartcandy'],         cust:'🧒', who:'단골 꼬마 민지',   line:'딸기랑 바나나 넣고, 핑크리본컵에 하트캔디로 마무리해 주세요~'},
-  {id:'mint',   name:'민트초코 크런치',       base:'milk',  tops:['mintchoco','cornflake'],      cup:'mint',     decos:['sprinkle'],           cust:'🐱', who:'민트러버 고양이', line:'민트초코에 바삭 크런치! 민트체커컵에 스프링클 솔솔!'},
-  {id:'mango',  name:'망고 요거트 선샤인',   base:'milk',  tops:['mango','yogurt'],             cup:'aurora',   decos:['wafer'],              cust:'🦊', who:'상큼파 여우',     line:'상큼한 망고 요거트! 오로라컵에 웨이퍼롤 하나 꽂아 주세요'},
-  {id:'brownie',name:'초코 브라우니 폭탄',   base:'choco', tops:['brownie','chocochip','nutella'],cup:'heart',  decos:['chocosyrup'],         cust:'🐼', who:'초코 덕후 판다',   line:'브라우니에 초코칩까지! 핑크리본컵에 초코시럽 듬뿍 부탁해요'},
-  {id:'green',  name:'녹차 마시멜로 구름',   base:'green', tops:['marshmallow','cheesecake'],   cup:'mint',     decos:['cream'],              cust:'🐨', who:'할머니 코알라',   line:'쌉싸름한 녹차에 마시멜로 구름, 민트컵에 휘핑크림까지 얹어 주게'},
-  {id:'unicorn',name:'유니콘 레인보우',       base:'straw', tops:['marshmallow','strawberry','chocochip'], cup:'aurora', decos:['unicorn','rainbowsyrup'], cust:'🦄', who:'무지개 덕후 유니콘', line:'오로라컵에 유니콘젤리! 무지개시럽도 꿰!'},
-  {id:'banana', name:'바나나 치즈 케이크',   base:'milk',  tops:['banana','cheesecake'],       cup:'heart',    decos:['caramel'],            cust:'🐶', who:'아빠 강아지',     line:'바나나랑 치즈케이크, 카라멜 살짝! 핑크리본컵에 담아 주세요'},
-  {id:'berry',  name:'베리 오레오 크런치',   base:'straw', tops:['strawberry','oreo','cornflake'], cup:'soda', decos:['strawberry','sprinkle'], cust:'📸', who:'유튜버 지후',   line:'비주얼 중요해요! 소다스타컵에 생딸기랑 스프링클 꿰!'},
-  {id:'rocket', name:'로켓 초코 발사',       base:'choco', tops:['chocochip','oreo'],          cup:'soda',     decos:['pearl','wafer'],      cust:'🚀', who:'로켓 소년 도윤',  line:'우주로 가는 소다스타컵! 별사탕이랑 웨이퍼까지 꽂아 줘!'},
-  {id:'soccer', name:'바나나 콘플레이크 파워', base:'milk', tops:['banana','cornflake'],        cup:'mint',     decos:['chocosyrup'],         cust:'⚽', who:'축구왕 준호',     line:'경기 끝나고 한 컵! 민트체커컵에 바나나 콘플레이크 파워!'}
+  /* ---- 간단 : 재료 1~2개 · 토핑 1개 ---- */
+  {id:'chick',  name:'우유 바나나 한 컵',   lvl:'easy',  base:'milk',  tops:['banana'],                    cup:'heart',  decos:['cream'],                 cust:'🐣', who:'병아리 꼬마',   line:'우유에 바나나 하나만! 핑크리본컵에 크림 한 숟갈~'},
+  {id:'peng',   name:'딸기 한 알',          lvl:'easy',  base:'straw', tops:['strawberry'],                cup:'soda',   decos:['strawberry'],            cust:'🐧', who:'펭귄 양말',     line:'딸기우유에 딸기 한 알! 소다스타컵에 생딸기 콕!'},
+  {id:'mint',   name:'민트초코 크런치',     lvl:'easy',  base:'milk',  tops:['mintchoco','cornflake'],     cup:'mint',   decos:['sprinkle'],              cust:'🐱', who:'민트러버 고양이', line:'민트초코에 바삭 크런치! 민트체커컵에 스프링클 솔솔!'},
+  {id:'mango',  name:'망고 요거트 선샤인',  lvl:'easy',  base:'milk',  tops:['mango','yogurt'],            cup:'aurora', decos:['wafer'],                 cust:'🦊', who:'상큼파 여우',   line:'상큼한 망고 요거트! 오로라컵에 웨이퍼롤 하나 꽂아 주세요'},
+  {id:'strawb', name:'딸기 바나나 스윗',    lvl:'easy',  base:'straw', tops:['strawberry','banana'],       cup:'heart',  decos:['heartcandy'],            cust:'🧒', who:'단골 꼬마 민지', line:'딸기랑 바나나 넣고, 핑크리본컵에 하트캔디로 마무리해 주세요~'},
+  {id:'green',  name:'녹차 마시멜로 구름',  lvl:'easy',  base:'green', tops:['marshmallow','cheesecake'],  cup:'mint',   decos:['cream'],                 cust:'🐨', who:'할머니 코알라', line:'쌉싸름한 녹차에 마시멜로 구름, 민트컵에 휘핑크림까지 얹어 주게'},
+  {id:'banana', name:'바나나 치즈 케이크',  lvl:'easy',  base:'milk',  tops:['banana','cheesecake'],       cup:'heart',  decos:['caramel'],               cust:'🐶', who:'아빠 강아지',   line:'바나나랑 치즈케이크, 카라멜 살짝! 핑크리본컵에 담아 주세요'},
+  {id:'soccer', name:'바나나 콘플레이크 파워', lvl:'easy', base:'milk', tops:['banana','cornflake'],        cup:'mint',   decos:['chocosyrup'],            cust:'⚽', who:'축구왕 준호',   line:'경기 끝나고 한 컵! 민트체커컵에 바나나 콘플레이크 파워!'},
+  /* ---- 보통 : 재료 2~3개 · 토핑 1~2개 ---- */
+  {id:'oreo',   name:'오레오 누텔라 스페셜', lvl:'normal', base:'choco', tops:['oreo','nutella'],           cup:'heart',  decos:['pearl'],                 cust:'🐰', who:'달콤파 토끼',   line:'오레오랑 누텔라 듬뿍! 핑크리본컵에 별사탕까지 올려 주세요!'},
+  {id:'brownie',name:'초코 브라우니 폭탄',  lvl:'normal', base:'choco', tops:['brownie','chocochip','nutella'], cup:'heart', decos:['chocosyrup'],          cust:'🐼', who:'초코 덕후 판다', line:'브라우니에 초코칩까지! 핑크리본컵에 초코시럽 듬뿍 부탁해요'},
+  {id:'berry',  name:'베리 오레오 크런치',  lvl:'normal', base:'straw', tops:['strawberry','oreo','cornflake'], cup:'soda', decos:['strawberry','sprinkle'], cust:'📸', who:'유튜버 지후', line:'비주얼 중요해요! 소다스타컵에 생딸기랑 스프링클 꿰!'},
+  {id:'rocket', name:'로켓 초코 발사',      lvl:'normal', base:'choco', tops:['chocochip','oreo'],          cup:'soda',   decos:['pearl','wafer'],          cust:'🚀', who:'로켓 소년 도윤', line:'우주로 가는 소다스타컵! 별사탕이랑 웨이퍼까지 꽂아 줘!'},
+  {id:'unicorn',name:'유니콘 레인보우',     lvl:'normal', base:'straw', tops:['marshmallow','strawberry','chocochip'], cup:'aurora', decos:['unicorn','rainbowsyrup'], cust:'🦄', who:'무지개 덕후 유니콘', line:'오로라컵에 유니콘젤리! 무지개시럽도 꿰!'},
+  {id:'frog',   name:'초록 망고 크런치',    lvl:'normal', base:'green', tops:['mango','yogurt','cornflake'], cup:'mint',  decos:['wafer','cream'],          cust:'🐸', who:'개굴개굴 개구리', line:'녹차에 망고 요거트, 콘푸로스트까지! 민트컵에 웨이퍼랑 크림 둘 다요'},
+  {id:'bear',   name:'초코 바나나 파워',    lvl:'normal', base:'choco', tops:['banana','cheesecake'],       cup:'heart',  decos:['caramel','chocochip'],    cust:'🐻', who:'힘센 곰돌이', line:'초코 바나나 치즈케이크로 힘 충전! 카라멜이랑 초코칩도 올려 줘'},
+  /* ---- 스페셜 : 재료 4~5개 · 토핑 3~4개 (복잡한 주문) ---- */
+  {id:'chocoparty', name:'초코 대잔치',    lvl:'hard', base:'choco', tops:['oreo','nutella','brownie','chocochip'], cup:'heart', decos:['chocosyrup','oreo','pearl'], cust:'🐷', who:'파티왕 아기돼지', line:'오늘은 초코 파티! 네 가지 다 넣고 시럽·오레오·별사탕까지!'},
+  {id:'fruitful',   name:'과일 가득 오로라', lvl:'hard', base:'straw', tops:['strawberry','banana','mango','yogurt'], cup:'aurora', decos:['strawberry','wafer','cream'], cust:'🦩', who:'과일 좋아 플라밍고', line:'과일을 잔뜩 넣어 줘! 생딸기·웨이퍼·크림까지 예쁘게!'},
+  {id:'greentea',   name:'녹차 마시멜로 대잔치', lvl:'hard', base:'green', tops:['marshmallow','cheesecake','cornflake','chocochip'], cup:'mint', decos:['cream','marshmallow','sprinkle'], cust:'🐢', who:'느긋한 거북이', line:'녹차에 마시멜로 듬뿍! 크림·마시멜로·스프링클 세 개 다 올려 주렴'},
+  {id:'minsuper',   name:'민트초코 슈퍼스타', lvl:'hard', base:'milk', tops:['mintchoco','chocochip','oreo','cornflake','marshmallow'], cup:'soda', decos:['sprinkle','pearl','chocosyrup','wafer'], cust:'🐺', who:'민트 별 늑대', line:'제일 복잡한 주문이야! 다섯 가지 재료에 토핑 네 개까지, 소다스타컵으로!'},
+  {id:'rainbowparty', name:'무지개 유니콘 파티', lvl:'hard', base:'straw', tops:['marshmallow','strawberry','chocochip','banana'], cup:'aurora', decos:['unicorn','rainbowsyrup','gummy','pearl'], cust:'🐲', who:'무지개 파티 드래곤', line:'친구들 파티라서 아주 복잡해! 오로라컵에 토핑도 네 개나 올려야 해'}
 ];
+const LVL_TXT={easy:{e:'🌱',t:'간단'},normal:{e:'🍦',t:'보통'},hard:{e:'👑',t:'스페셜'}};
 
 const BASE_BY={}, TOP_BY={}, DECO_BY={};
 BASES.forEach(b=>BASE_BY[b.id]=b); TOPS.forEach(t=>TOP_BY[t.id]=t); DECOS.forEach(d=>DECO_BY[d.id]=d);
@@ -4913,7 +4952,7 @@ const el={
   tray:$('#trayInner'), stepBadge:$('#stepBadge'), stepTitle:$('#stepTitle'), stepPct:$('#stepPct'),
   stepFill:$('#stepFill'), next:$('#nextBtn'), tip:$('#floatTip'), combo:$('#comboTag'), temp:$('#tempBadge'),
   orderName:$('#orderName'), orderReq:$('#orderReq'), avatar:$('#custAvatar'), dice:$('#diceBtn'),
-  orderNote:$('#orderNote'),
+  orderNote:$('#orderNote'), bar:$('#orderbar'),
   coins:$('#coinHud'), mute:$('#muteBtn'), start:$('#startScreen'), result:$('#resultScreen'),
   tool:$('#toolBadge')
 };
@@ -5367,13 +5406,13 @@ function flash(v){ S.flash=Math.max(S.flash,v); }
    탭·스페이스·엔터 어느 것이든 한 번이면 바로 STEP 1로.
    ============================================================ */
 const I={root:null,staff:null,cust:null,bubS:null,bubC:null,who:null,say:null,emoji:null,bubSt:null,bubSs:null,
-  order:null,oName:null,oBase:null,oTops:null,oCup:null,oDecos:null,timers:[]};
+  order:null,oName:null,oBase:null,oTops:null,oCup:null,oDecos:null,oLvl:null,timers:[]};
 function introInit(){
   I.root=$('#intro'); I.staff=$('#iStaff'); I.cust=$('#iCust');
   I.bubS=$('#iBubStaff'); I.bubC=$('#iBubCust');
   I.who=$('#iWho'); I.say=$('#iSay'); I.emoji=$('#iCustEmoji');
   I.order=$('#iOrder'); I.oName=$('#iOName');
-  I.oBase=$('#iOVBase'); I.oTops=$('#iOVTops'); I.oCup=$('#iOVCup'); I.oDecos=$('#iOVDecos');
+  I.oBase=$('#iOVBase'); I.oTops=$('#iOVTops'); I.oCup=$('#iOVCup'); I.oDecos=$('#iOVDecos'); I.oLvl=$('#iOLvl');
   I.bubSt=I.bubS?I.bubS.querySelector('b'):null; I.bubSs=I.bubS?I.bubS.querySelector('span'):null;
   if(!I.root) return;
   I.root.addEventListener('pointerdown',e=>{ e.preventDefault(); skipIntro(); },{passive:false});
@@ -5404,10 +5443,16 @@ function introFill(recipe,free){   /* 인트로 화면 내용물 세팅 */
     const cup=CUP_DESIGNS.find(c=>c.id===recipe.cup);
     const decos=(recipe.decos||[]).map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean);
     if(I.oName) I.oName.textContent=recipe.name||'오늘의 주문';
+    if(I.oLvl){
+      const lv=LVL_TXT[recipe.lvl]||LVL_TXT.normal;
+      I.oLvl.hidden=false; I.oLvl.textContent=lv.e+' '+lv.t;
+      I.oLvl.className='iOLvl'+(recipe.lvl==='hard'?' hard':'');
+    }
+    const ovHTML=(arr)=>arr.length?arr.map(x=>'<i>'+x+'</i>').join(''):'—';
     if(I.oBase) I.oBase.textContent=b.e+' '+b.name;
-    if(I.oTops) I.oTops.textContent=tops.length?tops.join(' · '):'—';
+    if(I.oTops) I.oTops.innerHTML=ovHTML(tops);
     if(I.oCup) I.oCup.textContent=cup?cup.e+' '+cup.name+'컵':'—';
-    if(I.oDecos) I.oDecos.textContent=decos.length?decos.join(' · '):'—';
+    if(I.oDecos) I.oDecos.innerHTML=ovHTML(decos);
   }
 }
 function playIntro(recipe,kind){
@@ -5539,7 +5584,7 @@ function renderTray1(){
   const r=(S.mode==='order'&&S.recipe)?S.recipe:null;
   let h='<div class="thead"><span>베이스</span><span>탭해서 붓기</span></div><div class="chips bases">';
   for(const b of BASES) h+=chipHTML(b,S.base===b.id,!!(r&&r.base===b.id),false,'base');
-  h+='</div><div class="thead"><span>토핑</span><span>최대 4개</span></div><div class="chips tops">';
+  h+='</div><div class="thead"><span>재료</span><span>최대 5개</span></div><div class="chips tops">';
   for(const t of TOPS) h+=chipHTML(t,S.tops.includes(t.id),!!(r&&r.tops.includes(t.id)),false,'deco');
   h+='</div>';
   el.tray.innerHTML=h;
@@ -5656,11 +5701,22 @@ function refreshOrderBar(){
       h+='<span class="req deco'+(ok?' ok':' miss')+'">'+(ok?'✓ ':'')+d.e+' '+d.name+'</span>';
     });
     el.orderReq.innerHTML=h;
+    /* 스페셜처럼 주문 항목이 많은 판은 칩을 작게 해서 끝까지 다 보이게 */
+    const orderChips=1+(r.tops||[]).length+1+(r.decos||[]).length;
+    if(el.bar) el.bar.classList.toggle('dense',orderChips>=8);
     if(el.orderNote){
-      if(S.step>=6&&needDecos.length){
-        const decoTxt=needDecos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ');
-        const allOk=needDecos.every(id=>S.decos.some(x=>x.id===id));
-        el.orderNote.innerHTML='<b>토핑 주문</b> '+decoTxt+(allOk?' · ✓ 완벽!' : ' · 올려요!');
+      const needDecos2=(r.decos||[]);
+      const extraDecos=S.decos.filter(d=>needDecos2.indexOf(d.id)<0);
+      const missDecos=needDecos2.filter(id=>!S.decos.some(x=>x.id===id));
+      if(S.step>=6&&needDecos2.length){
+        if(extraDecos.length){
+          el.orderNote.innerHTML='<b>주문에 없는 토핑!</b> 한 번 더 누르면 빼져요';
+        } else if(missDecos.length){
+          const decoTxt=missDecos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ');
+          el.orderNote.innerHTML='<b>토핑 주문</b> '+decoTxt+' · 올려요!';
+        } else {
+          el.orderNote.innerHTML='<b>토핑 주문</b> 주문 그대로 ✓ 완벽!';
+        }
       } else {
         el.orderNote.innerHTML='<b>주문</b> '+(r.line||'');
       }
@@ -5669,6 +5725,7 @@ function refreshOrderBar(){
   } else {
     el.avatar.textContent='🍨';
     el.orderName.textContent='자유 레시피 · 복불복';
+    if(el.bar) el.bar.classList.remove('dense');
     let h='';
     if(S.base){ const b=BASE_BY[S.base]; h+='<span class="req ok">✓ '+b.e+' '+b.name+'</span>'; }
     for(const id of S.tops.slice(0,4)){ const t=TOP_BY[id]; h+='<span class="req ok">✓ '+t.e+' '+t.name+'</span>'; }
@@ -5716,7 +5773,7 @@ function onChip(id){
   let added=null;
   if(i>=0) S.tops.splice(i,1);
   else {
-    if(S.tops.length>=4){ showTip('토핑은 4개까지 올릴 수 있어요'); return; }
+    if(S.tops.length>=5){ showTip('토핑은 5개까지 올릴 수 있어요'); return; }
     S.tops.push(id); added=id;
   }
   if(added){
@@ -5779,7 +5836,7 @@ function goStep(n){
     const dr=(S.mode==='order'&&S.recipe&&(S.recipe.decos||[]).length)
       ? S.recipe.decos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ')
       : null;
-    showTip(dr?('🍦 롤 4개 완성! 주문 토핑 '+dr+' 올려요'):'🍦 롤 4개 완성! 토핑은 마음대로 장식해요',4400);
+    showTip(dr?('🍦 롤 4개 완성! 주문 토핑만 올려요'):'🍦 롤 4개 완성! 토핑은 마음대로 장식해요',4400);
   }
   if(n>=5) refreshOrderBar();
   renderTray(); updateProgress(); updateToolBadge();
@@ -5791,8 +5848,27 @@ function goStep(n){
   setTimeout(()=>{ tr.classList.remove('swap'); sb.classList.remove('swap'); },420);
   requestAnimationFrame(()=>resize());
 }
+/* 주문 주머니 : 스무 장을 한 번씩 다 뽑고 다시 섞는다.
+   간단·보통·스페셜 주문이 골고루 섞이고, 바로 앞 주문이 또 나오지 않는다. */
+let recipeBag=[];
 function pickRecipe(){
-  const pool=RECIPES.filter(r=>!S.recipe||r.id!==S.recipe.id);
+  const prev=S.recipe?S.recipe.id:null;
+  for(let t=0;t<60;t++){
+    if(!recipeBag.length){
+      recipeBag=RECIPES.map(r=>r.id);
+      for(let i=recipeBag.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const tmp=recipeBag[i]; recipeBag[i]=recipeBag[j]; recipeBag[j]=tmp; }
+      /* 다음에 뽑힐 맨 뒤가 바로 앞 주문이면 다른 것과 맞바꾼다 */
+      const last=recipeBag.length-1;
+      if(prev&&recipeBag[last]===prev&&last>0){
+        const j=Math.floor(Math.random()*last);
+        const tmp=recipeBag[last]; recipeBag[last]=recipeBag[j]; recipeBag[j]=tmp;
+      }
+    }
+    const id=recipeBag.pop();
+    const r=RECIPES.find(x=>x.id===id);
+    if(r&&r.id!==prev) return r;
+  }
+  const pool=RECIPES.filter(r=>r.id!==prev);
   return pool[Math.floor(Math.random()*pool.length)];
 }
 function resetRound(){
@@ -6045,8 +6121,26 @@ function setCupDesign(id){
 }
 function addDeco(id){
   if(S.step!==6||!S.cupReady) return;
-  if(S.decos.length>=7){ showTip('장식은 7개까지 올릴 수 있어요'); return; }
   const d=DECO_BY[id]; if(!d) return;
+  /* 이미 올린 토핑을 한 번 더 누르면 뺀다 — 주문서와 비교해 고칠 수 있게 */
+  let lastIdx=-1;
+  for(let i=S.decos.length-1;i>=0;i--){ if(S.decos[i].id===id){ lastIdx=i; break; } }
+  if(lastIdx>=0){
+    S.decos.splice(lastIdx,1);
+    AudioKit.ui(); AudioKit.swoosh();
+    const c0=$('#decoCount'); if(c0) c0.textContent=decoCountText();
+    const chip0=el.tray.querySelector('.chip[data-id="'+id+'"]');
+    if(chip0){
+      const still=S.decos.some(x=>x.id===id);
+      chip0.classList.toggle('on',still);
+      if(!still&&S.mode==='order'&&S.recipe&&(S.recipe.decos||[]).includes(id)) chip0.classList.add('need');
+    }
+    if(S.mode==='order') refreshOrderBar();
+    updateProgress(); updateToolBadge();
+    showTip(d.name+' 뺐어요',1100);
+    return;
+  }
+  if(S.decos.length>=7){ showTip('토핑은 7개까지 올릴 수 있어요'); return; }
   S.decos.push({id:id,e:d.e,t:0,seed:Math.floor(rnd(1,997))});
   /* 도구 등장 */
   const syrup=/syrup|caramel/.test(id);
@@ -6066,6 +6160,7 @@ function addDeco(id){
     refreshOrderBar();
     const need=(S.recipe.decos||[]);
     if(need.includes(id)) showTip('주문한 '+d.name+' ✓ 딱 맞았어요!',1500);
+    else showTip('주문에 없는 토핑이에요 · 한 번 더 누르면 빼져요',1900);
   }
   updateProgress(); updateToolBadge();
 }
@@ -6266,16 +6361,42 @@ function chopTap(w){
 /* ---------- result ---------- */
 const MSGS={
   5:['완벽해요! 유니콘도 엄지척! 🦄👍','손님이 감동해서 팁까지 두고 갔어요!','철판 위에서 마법이 일어났어요 ✨'],
-  4:['아주 맛있어 보여요! 손님이 활짝 웃었어요.','롤 모양이 근사해요. 다음엔 별 다섯 개?!'],
+  4:['아주 맛있어 보여요! 손님이 활짝 웃었어요.','롤 모양이 근사해요. 다음엔 100점?!'],
   3:['괜찮아요! 수제 감성 가득한 한 컵이에요.','맛은 있어요. 조금만 더 예쁘게 담아 볼까요?'],
   2:['음… 개성 넘치는 맛이에요!','손님이 깜짝 놀랐지만 맛있게 먹었어요.'],
   1:['조금 아쉬웠지만, 다음엔 더 달콤하게! 💗']
 };
+/* 주문서와 만든 아이스크림을 하나씩 비교한다.
+   베이스 · 컵 · 재료(빠짐/더 넣음) · 토핑(안 올림/더 올림)이 다르면 각각 1건. */
+function orderDiff(recipe, made){
+  const r=recipe, m=made||{};
+  const needTops=(r.tops||[]), gotTops=(m.tops||[]);
+  const needDecos=(r.decos||[]), gotDecos=(m.decos||[]);
+  const missTops=needTops.filter(id=>gotTops.indexOf(id)<0);
+  const extraTops=gotTops.filter(id=>needTops.indexOf(id)<0);
+  const missDecos=needDecos.filter(id=>gotDecos.indexOf(id)<0);
+  const extraDecos=gotDecos.filter(id=>needDecos.indexOf(id)<0);
+  const baseOk=(m.base===r.base);
+  const cupOk=!!(m.cupPicked&&m.cup===r.cup);
+  const items=[];
+  if(!baseOk){ const b=BASE_BY[r.base]||{}; items.push({k:'base',e:b.e||'🥛',txt:(b.name||'베이스')+' 베이스가 달라요'}); }
+  if(!cupOk){ const c=CUP_DESIGNS.find(x=>x.id===r.cup)||{}; items.push({k:'cup',e:c.e||'🥤',txt:(c.name||'')+'컵이 달라요'}); }
+  missTops.forEach(id=>{ const t=TOP_BY[id]||{}; items.push({k:'topMiss',e:t.e||'🍨',txt:(t.name||id)+' 빠짐'}); });
+  extraTops.forEach(id=>{ const t=TOP_BY[id]||{}; items.push({k:'topExtra',e:t.e||'🍨',txt:(t.name||id)+' 더 넣음'}); });
+  missDecos.forEach(id=>{ const d=DECO_BY[id]||{}; items.push({k:'decoMiss',e:d.e||'✨',txt:(d.name||id)+' 안 올림'}); });
+  extraDecos.forEach(id=>{ const d=DECO_BY[id]||{}; items.push({k:'decoExtra',e:d.e||'✨',txt:(d.name||id)+' 더 올림'}); });
+  return {diffCount:items.length, items:items, baseOk:baseOk, cupOk:cupOk,
+          missTops:missTops, extraTops:extraTops, missDecos:missDecos, extraDecos:extraDecos};
+}
+/* 100점제 — 다른 항목 1개마다 5점, 0점 아래로는 내려가지 않아요 */
+function scoreFromDiff(n){ return Math.max(0, 100-n*5); }
+function starsFromDiff(n){ return n<=0?5:(n<=2?4:(n<=5?3:(n<=10?2:1))); }
+
 function computeResult(){
   const r=S.recipe;
-  let score=0, note='', perfect=false;
-  S.orderPerfect=false; S.decoReco=false;
-  /* 손맛(다지기·펴기·말기) — 점수에 살짝만 반영. 아이들이 크게 깎이지 않게 후하게 */
+  let score=0, note='';
+  S.orderPerfect=false; S.decoReco=false; S.diffs=[]; S.diffCount=0;
+  /* 손맛(다지기·펴기·말기) — 점수에는 안 들어가고 롤 상태에만 살짝 반영 */
   const gaps=S.tapGaps;
   const avgGap=gaps.length?gaps.reduce((a,b)=>a+b,0)/gaps.length:0.28;
   const chopQ=clamp(1-Math.abs(avgGap-0.26)/0.62,0.35,1);
@@ -6283,47 +6404,32 @@ function computeResult(){
   const rollQ=clamp(S.rollQuality||0,0,1);
   const craft=(chopQ+spreadQ+rollQ)/3;
   if(S.mode==='order'&&r){
-    const baseOk=S.base===r.base;
-    const needTops=Math.max(1,r.tops.length);
-    const hit=r.tops.filter(t=>S.tops.includes(t)).length;
-    const cupOk=!!(S.cupPicked&&S.cupDesign===r.cup);
-    const needDecos=r.decos||[];
-    const decoHit=needDecos.filter(id=>S.decos.some(d=>d.id===id)).length;
-    /* 주문 일치 판정은 베이스 + 핵심 재료 + 요청 컵, 딱 세 가지로만.
-       토핑(장식)은 0개든, 추천이 아닌 다른 토핑이든 마음대로 — 퍼센티지 감점 없음! */
-    perfect=baseOk&&hit===needTops&&cupOk;
-    S.orderPerfect=perfect;
-    S.cupMatch=cupOk; S.decoMatch=decoHit; S.decoNeed=needDecos.length;
-    S.decoReco=!!(needDecos.length&&decoHit===needDecos.length);
-    if(perfect){
-      /* 베이스·재료·컵을 다 맞췄으면 98% 기본. 토핑을 얹으면 +1, 추천 토핑까지 다 얹으면 +1 → 98~100% */
-      score=98+(S.decos.length?1:0)+(S.decoReco?1:0);
-      if(S.decoReco){
-        note='주문 그대로 — 베이스·재료·컵·토핑까지 완벽! 100% 🎉';
-      } else if(needDecos.length){
-        const miss=needDecos.map(id=>DECO_BY[id]?DECO_BY[id].e+' '+DECO_BY[id].name:'').filter(Boolean).join(' · ');
-        note='베이스·재료·컵까지 완벽! 주문 토핑 '+miss+'까지 올리면 100%';
-      } else {
-        note='주문 그대로 — 베이스·재료·컵까지 완벽!';
-      }
-    } else {
-      score=(baseOk?40:20)+34*(hit/needTops)+(cupOk?9:0)+craft*6;
-      note=(!baseOk&&hit===0&&!cupOk)?'주문과 많이 달라요'
-          :(baseOk?'주문과 조금 달라요 — 재료·컵을 다시 봐요'
-                   :'주문과 조금 달라요 — 베이스·재료·컵을 다시 봐요');
-    }
+    /* 주문서와 똑같으면 100점, 하나 다를 때마다 -5점 */
+    const d=orderDiff(r,{base:S.base, tops:S.tops, decos:S.decos.map(x=>x.id), cup:S.cupDesign, cupPicked:S.cupPicked});
+    S.diffs=d.items; S.diffCount=d.diffCount;
+    score=scoreFromDiff(d.diffCount);
+    S.orderPerfect=(d.diffCount===0);
+    S.cupMatch=d.cupOk;
+    S.decoNeed=(r.decos||[]).length;
+    S.decoMatch=S.decoNeed-d.missDecos.length;
+    S.decoReco=!!(S.decoNeed&&d.missDecos.length===0&&d.extraDecos.length===0);
+    note=(d.diffCount===0)
+      ? '주문서와 똑같아요! 베이스·재료·컵·토핑까지 완벽한 100점 🎉'
+      : '주문서와 '+d.diffCount+'개 달라서 -'+(d.diffCount*5)+'점';
   } else {
     score=86+craft*14;
+    S.diffCount=null;
     note='나만의 레시피, 개성 만점!';
   }
-  S.score=clamp(Math.round(score),10,100);
-  S.stars=clamp(Math.round(S.score/20),1,5);
+  S.score=clamp(Math.round(score),0,100);
+  S.stars=(S.diffCount===null)?clamp(Math.round(S.score/20),1,5):starsFromDiff(S.diffCount);
   let sweet=(BASE_BY[S.base]?BASE_BY[S.base].sugar:0);
   S.tops.forEach(id=>{ if(TOP_BY[id]) sweet+=TOP_BY[id].sugar; });
   S.decos.forEach(d=>{ if(DECO_BY[d.id]) sweet+=DECO_BY[d.id].sugar; });
   /* 달콤함도 후하게 — 재료를 넣을수록 100%에 가깝게 */
   S.sweet=clamp(Math.round(56+sweet*0.72),56,100);
-  S.lastCoins=S.stars*10+(S.stars===5?15:0)+(S.orderPerfect?15:0)+(S.decoReco?5:0);
+  /* 코인도 100점제에 맞춰 : 별 10코인씩 + 만점 보너스 20코인 */
+  S.lastCoins=S.stars*10+(S.stars===5?15:0)+(S.orderPerfect?20:0);
   addWeekly(S.lastCoins);   /* 이 판 코인을 이번 주 점수에 합산 → 서버 동기화 */
   updateHud();
   S.qChop=chopQ; S.qSpread=spreadQ; S.qRoll=rollQ;
@@ -6333,6 +6439,25 @@ function freeName(){
   const b=BASE_BY[S.base]||BASES[0];
   const names=S.tops.map(id=>TOP_BY[id]?TOP_BY[id].name:'').filter(n=>n&&n!==b.short);
   return b.short+' '+(names.length?names.join('·'):'플레인')+' 롤';
+}
+function renderDiffBlock(isOrder){
+  const rd=$('#rDiff');
+  if(!rd) return;
+  if(!isOrder){ rd.hidden=true; rd.innerHTML=''; return; }
+  rd.hidden=false;
+  const n=Math.max(0,S.diffCount||0);
+  if(n===0){
+    rd.innerHTML='<div class="rdh ok">🎉 하나도 안 틀렸어요! <b>100점</b></div>';
+    return;
+  }
+  const list=S.diffs||[];
+  const show=list.slice(0,6);
+  let h='<div class="rdh">주문서와 <b>'+n+'개</b> 달랐어요 <span>-5점 × '+n+' = -'+(n*5)+'점</span></div>';
+  h+='<div class="rdchips">';
+  show.forEach(d=>{ h+='<span class="rdchip"><i>'+d.e+'</i>'+d.txt+'</span>'; });
+  if(list.length>show.length) h+='<span class="rdchip more">+'+(list.length-show.length)+'개 더</span>';
+  h+='</div>';
+  rd.innerHTML=h;
 }
 function showResult(){
   const r=S.recipe;
@@ -6351,14 +6476,11 @@ function showResult(){
   $('#rSweet').textContent=S.sweet+'%';
   $('#rRoll').textContent=S.qRoll>0.85?'완벽':(S.qRoll>0.55?'좋아요':'수제감성');
   $('#rCoin').textContent='+'+S.lastCoins;
+  renderDiffBlock(isOrder);
   const pool=S.orderPerfect?['주문 그대로 완벽해요! 손님이 감동했어요 🎉','손님이 사진 찍어 갔어요! 완벽한 한 컵 ✨']:(MSGS[S.stars]||MSGS[3]);
   $('#rMsg').textContent=pool[Math.floor(Math.random()*pool.length)];
-  let rb=S.resultNote;
-  if(S.mode==='order'&&S.orderPerfect){
-    let bonus='주문 보너스 +15 코인';
-    if(S.decoReco) bonus+=' · 주문 토핑 보너스 +5 코인';
-    rb+='<br><em class="rbonus">'+bonus+'</em>';
-  }
+  let rb=(S.mode==='order')?'':S.resultNote;
+  if(S.mode==='order'&&S.orderPerfect) rb='<em class="rbonus">만점 보너스 +20 코인</em>';
   $('#rNote').innerHTML=rb;
   const rkEl=$('#rRank');
   if(rkEl) rkEl.textContent='🏆 이번 주 내 순위: '+(W.rank?W.rank+'등':'—')+' ('+fmtCoin(W.coins)+'코인)';
@@ -6666,6 +6788,7 @@ function init(){
         pickRolls:S.pick?S.pick.rolls.map(r=>({i:r.i,x:+r.x.toFixed(1),y:+r.y.toFixed(1),placed:r.placed,fly:!!r.fly})):[],
         pickOverCup:!!(S.pick&&S.pick.overCup),
         stars:S.stars, score:S.score, sweet:S.sweet, recipe:S.recipe?S.recipe.id:null,
+        diffCount:S.diffCount, diffs:(S.diffs||[]).map(d=>d.k+':'+d.txt), recipeLvl:S.recipe?S.recipe.lvl:null,
         cupPicked:S.cupPicked, orderPerfect:!!S.orderPerfect, decoReco:!!S.decoReco,
         resultVisible:el.result.classList.contains('show'), coins:S.coins,
         pourT:+S.pourT.toFixed(2), pourAnim:!!S.pourAnim, dropAnim:S.dropAnim?S.dropAnim.id:null,
@@ -6677,6 +6800,21 @@ function init(){
     spreadGeom(){ const sp=S.spr, sh=sprSheetRect(); return sp?{l:+sp.l.toFixed(3),r:+sp.r.toFixed(3),t:+sp.t.toFixed(3),b:+sp.b.toFixed(3),sheet:sh,pct:+(S.spreadPct||0).toFixed(3),scale:scale}:null; },
     sheet(){ return S.sheet?{x:S.sheet.x,y:S.sheet.y,w:S.sheet.w,h:S.sheet.h}:null; },
     recipe(){ return S.recipe?JSON.parse(JSON.stringify(S.recipe)):null; },
+    scoreOf(recipeId, made){ const rr=RECIPES.find(x=>x.id===recipeId); if(!rr) return null;
+      const d=orderDiff(rr,made||{});
+      return {score:scoreFromDiff(d.diffCount), stars:starsFromDiff(d.diffCount), diffCount:d.diffCount, diffs:d.items};
+    },
+    recipes(){ return RECIPES.map(r=>({id:r.id,lvl:r.lvl,tops:r.tops.length,decos:(r.decos||[]).length})); },
+    setRecipe(id){ const r=RECIPES.find(x=>x.id===id); if(!r) return null; S.recipe=r; refreshOrderBar(); return r.id; },
+    made(o){ o=o||{};
+      if(o.base) S.base=o.base;
+      if(o.tops) S.tops=o.tops.slice();
+      if(o.decos) S.decos=o.decos.map(id=>({id:id,e:(DECO_BY[id]||{}).e||'✨',t:1,seed:7}));
+      if(o.cup){ S.cupDesign=o.cup; S.cupPicked=true; }
+      S.cupReady=true; refreshOrderBar(); return true;
+    },
+    finish(){ computeResult(); showResult(); return {score:S.score,stars:S.stars,diffCount:S.diffCount,
+      diffs:(S.diffs||[]).map(d=>d.txt),coins:S.lastCoins,perfect:!!S.orderPerfect}; },
     me(){ return {pid:PID, nick:W.nick, week:W.week, coins:W.coins, plays:W.plays, dirty:W.dirty,
       online:W.online, rank:W.rank, rows:W.rows.length, err:W.err}; },
     setNick(n){ return setNickname(n); },
