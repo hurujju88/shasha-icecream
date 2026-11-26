@@ -1021,7 +1021,7 @@ const RECIPES=[
   {id:'chocoparty', name:'초코 대잔치',    lvl:'hard', base:'choco', tops:['oreo','nutella','brownie','chocochip'], cup:'heart', decos:['chocosyrup','oreo','pearl'], cust:'🐷', who:'파티왕 아기돼지', line:'오늘은 초코 파티! 네 가지 다 넣고 시럽·오레오·별사탕까지!'},
   {id:'fruitful',   name:'과일 가득 오로라', lvl:'hard', base:'straw', tops:['strawberry','banana','mango','yogurt'], cup:'aurora', decos:['strawberry','wafer','cream'], cust:'🦩', who:'과일 좋아 플라밍고', line:'과일을 잔뜩 넣어 줘! 생딸기·웨이퍼·크림까지 예쁘게!'},
   {id:'greentea',   name:'녹차 마시멜로 대잔치', lvl:'hard', base:'green', tops:['marshmallow','cheesecake','cornflake','chocochip'], cup:'mint', decos:['cream','marshmallow','sprinkle'], cust:'🐢', who:'느긋한 거북이', line:'녹차에 마시멜로 듬뿍! 크림·마시멜로·스프링클 세 개 다 올려 주렴'},
-  {id:'minsuper',   name:'민트초코 슈퍼스타', lvl:'hard', base:'milk', tops:['mintchoco','chocochip','oreo','cornflake','marshmallow'], cup:'soda', decos:['sprinkle','pearl','chocosyrup','wafer'], cust:'🐺', who:'민트 별 늑대', line:'제일 복잡한 주문이야! 다섯 가지 재료에 토핑 네 개까지, 소다스타컵으로!'},
+  {id:'minsuper',   name:'민트초코 슈퍼스타', lvl:'hard', base:'milk', tops:['mintchoco','chocochip','oreo','cornflake','marshmallow'], cup:'soda', decos:['sprinkle','pearl','chocosyrup','wafer'], cust:'🐺', who:'민트 별 늑대', line:'다섯 가지 재료에 토핑 네 개! 제일 복잡한 주문이야, 소다스타컵으로!'},
   {id:'rainbowparty', name:'무지개 유니콘 파티', lvl:'hard', base:'straw', tops:['marshmallow','strawberry','chocochip','banana'], cup:'aurora', decos:['unicorn','rainbowsyrup','gummy','pearl'], cust:'🐲', who:'무지개 파티 드래곤', line:'친구들 파티라서 아주 복잡해! 오로라컵에 토핑도 네 개나 올려야 해'}
 ];
 const LVL_TXT={easy:{e:'🌱',t:'간단'},normal:{e:'🍦',t:'보통'},hard:{e:'👑',t:'스페셜'}};
@@ -4983,7 +4983,7 @@ function setTool(key,title,sub){
 function updateToolBadge(){
   if(S.step===1){
     if(S.pourAnim) setTool('jug','유리 저그','붓는 중');
-    else if(S.dropAnim) setTool('tongs','스테인리스 집게','토핑 집기');
+    else if(S.dropAnim) setTool('tongs','스테인리스 집게','재료 집기');
     else setTool('jug','유리 저그','재료 넣기');
   } else if(S.step===2){
     setTool('dual','쌍주걱','따닥따닥 다지기');
@@ -5729,7 +5729,7 @@ function refreshOrderBar(){
     let h='';
     if(S.base){ const b=BASE_BY[S.base]; h+='<span class="req ok">✓ '+b.e+' '+b.name+'</span>'; }
     for(const id of S.tops.slice(0,4)){ const t=TOP_BY[id]; h+='<span class="req ok">✓ '+t.e+' '+t.name+'</span>'; }
-    if(!h) h='<span class="req">베이스를 붓고 토핑을 골라요</span>';
+    if(!h) h='<span class="req">베이스를 붓고 재료를 골라요</span>';
     el.orderReq.innerHTML=h;
     if(el.orderNote) el.orderNote.innerHTML='내 마음대로 골라 보세요 — 오늘은 뭐로 만들까? 🎲';
     el.dice.hidden=!(S.step===1);
@@ -5773,7 +5773,7 @@ function onChip(id){
   let added=null;
   if(i>=0) S.tops.splice(i,1);
   else {
-    if(S.tops.length>=5){ showTip('토핑은 5개까지 올릴 수 있어요'); return; }
+    if(S.tops.length>=5){ showTip('재료는 5개까지 넣을 수 있어요'); return; }
     S.tops.push(id); added=id;
   }
   if(added){
@@ -5822,7 +5822,7 @@ function goStep(n){
   el.next.classList.toggle('hide',!(n===1||n===6));
   el.temp.textContent='❄️ -20°C';
   S.pourAnim=false; S.dropAnim=null;
-  if(n===1){ refreshOrderBar(); showTip('🧺 베이스를 붓고 토핑을 올려요'); }
+  if(n===1){ refreshOrderBar(); showTip('🧺 베이스를 붓고 재료를 넣어요'); }
   if(n===2){
     S.spat=[{a:0},{a:0}];
     S.hand.x=S.hand.tx=PL.inner.x+PL.inner.w*0.5;
